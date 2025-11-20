@@ -111,7 +111,9 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
     setSelectedLanguage(pendingLanguage);
     setShowLanguageConfirm(false);
     toast.success(t('settings.languageChanged'));
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   const handleSave = async () => {
