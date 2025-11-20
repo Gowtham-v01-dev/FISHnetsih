@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { loadLocalCatches } from "@/utils/localCatches";
 import { History, Filter, Zap, X, Droplet, BarChart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -118,9 +119,11 @@ const databaseService = {
 const HistoryList = ({
   onCatchSelect,
   items,
+  t,
 }: {
   onCatchSelect: (c: FishCatch) => void;
   items: FishCatch[];
+  t: (key: string, options?: any) => string;
 }) => (
   <motion.div
     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -154,11 +157,11 @@ const HistoryList = ({
           <div className="flex items-center gap-4 mt-3 text-xs text-gray-300">
             <span className="flex items-center gap-1.5">
               <Zap size={14} className="text-sky-400" />{" "}
-              {c.confidence.toFixed(0)}% Traceability
+              {c.confidence.toFixed(0)}% {t('analyze.confidence')}
             </span>
             <span className="flex items-center gap-1.5">
               <Droplet size={14} className="text-emerald-400" />{" "}
-              {c.health_score.toFixed(0)}% Health
+              {c.health_score.toFixed(0)}% {t('history.healthScore', { defaultValue: 'Health' })}
             </span>
           </div>
         </div>
@@ -167,11 +170,12 @@ const HistoryList = ({
   </motion.div>
 );
 
-const AnalysisResults = ({ result }: { result: FishCatch }) => (
+const AnalysisResults = ({ result, t }: { result: FishCatch; t: (key: string, options?: any) => string }) => (
   <div className="text-gray-300 text-sm">
-    Detailed analysis results for {result.species} would be displayed here,
-    providing deeper insights into the catch data and historical trends for
-    regulatory and personal tracking purposes.
+    {t('history.analysisDetails', { 
+      species: result.species,
+      defaultValue: `Detailed analysis results for ${result.species} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes.`
+    })}
   </div>
 );
 
@@ -181,6 +185,7 @@ const cn = (...classes: (string | undefined | null | false)[]) =>
 // --- END OF DUMMY IMPLEMENTATIONS ---
 
 export default function HistoryPage() {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<FishCatch | null>(null);
   const [catches, setCatches] = useState<FishCatch[]>([]);
   const [speciesHistory, setSpeciesHistory] = useState<FishCatch[]>([]);
@@ -283,8 +288,8 @@ export default function HistoryPage() {
   }, [speciesHistory]);
 
   const chartConfig = {
-    Traceability: { label: "Traceability", color: "hsl(195, 89%, 52%)" },
-    Health: { label: "Health", color: "hsl(142, 71%, 45%)" },
+    Traceability: { label: t('analyze.confidence'), color: "hsl(195, 89%, 52%)" },
+    Health: { label: t('history.healthScore', { defaultValue: 'Health' }), color: "hsl(142, 71%, 45%)" },
   };
 
   return (
@@ -316,8 +321,8 @@ export default function HistoryPage() {
           <div className="flex items-center gap-3">
             <History className="h-6 w-6 text-sky-400" />
             <div>
-              <h1 className="text-xl font-bold text-white">Catch History</h1>
-              <p className="text-xs text-gray-400">Your personal fishing log</p>
+              <h1 className="text-xl font-bold text-white">{t('history.title')}</h1>
+              <p className="text-xs text-gray-400">{t('history.subtitle', { defaultValue: 'Your personal fishing log' })}</p>
             </div>
           </div>
           <Button
@@ -325,13 +330,13 @@ export default function HistoryPage() {
             className="text-gray-400 hover:text-white hover:bg-sky-500/20"
           >
             <Filter className="h-4 w-4 mr-2" />
-            Filter
+            {t('common.filter')}
           </Button>
         </div>
       </header>
 
       <div className="container mx-auto max-w-7xl p-4">
-        <HistoryList onCatchSelect={setSelected} items={catches} />
+        <HistoryList onCatchSelect={setSelected} items={catches} t={t} />
       </div>
 
       <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
@@ -392,43 +397,43 @@ export default function HistoryPage() {
                         />
                         <div className="grid grid-cols-2 gap-2 w-full text-center">
                           <div className="bg-sky-500/20 text-sky-300 px-3 py-2 rounded-lg text-sm font-semibold border border-sky-500/30">
-                            <p className="text-xs text-sky-400">Traceability</p>
+                            <p className="text-xs text-sky-400">{t('analyze.confidence')}</p>
                             {confidence.toFixed(0)}%
                           </div>
                           <div className="bg-emerald-500/20 text-emerald-300 px-3 py-2 rounded-lg text-sm font-semibold border border-emerald-500/30">
                             <p className="text-xs text-emerald-400">
-                              Health Score
+                              {t('history.healthScore', { defaultValue: 'Health Score' })}
                             </p>
                             {health.toFixed(0)}%
                           </div>
                         </div>
                         <div className="bg-slate-800/50 text-gray-300 px-3 py-2 rounded-lg text-sm font-medium w-full text-center border border-slate-700">
-                          <div>Date: {date}</div>
+                          <div>{t('history.date')}: {date}</div>
                           <div>
-                            Lat: {lat}, Lng: {lng}
+                            {t('map.location')}: {lat}, {lng}
                           </div>
                         </div>
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold mb-2 text-white">
-                          Analysis Details
+                          {t('analyze.results')}
                         </h3>
                         <div className="text-gray-300 text-sm">
                           <div>
-                            <strong>Species:</strong> {species}
+                            <strong>{t('analyze.species')}:</strong> {species}
                           </div>
                           <div>
-                            <strong>Date:</strong> {date}
+                            <strong>{t('history.date')}:</strong> {date}
                           </div>
                           <div>
-                            <strong>Lat/Lng:</strong> {lat}, {lng}
+                            <strong>{t('map.location')}:</strong> {lat}, {lng}
                           </div>
                           <div>
-                            <strong>Traceability:</strong>{" "}
+                            <strong>{t('analyze.confidence')}:</strong>{" "}
                             {confidence.toFixed(0)}%
                           </div>
                           <div>
-                            <strong>Health Score:</strong> {health.toFixed(0)}%
+                            <strong>{t('history.healthScore', { defaultValue: 'Health Score' })}:</strong> {health.toFixed(0)}%
                           </div>
                           <div>
                             <strong>Image:</strong>{" "}
@@ -478,33 +483,32 @@ export default function HistoryPage() {
                         />
                         <div className="grid grid-cols-2 gap-2 w-full text-center">
                           <div className="bg-sky-500/20 text-sky-300 px-3 py-2 rounded-lg text-sm font-semibold border border-sky-500/30">
-                            <p className="text-xs text-sky-400">Traceability</p>
+                            <p className="text-xs text-sky-400">{t('analyze.confidence')}</p>
                             {confidence.toFixed(0)}%
                           </div>
                           <div className="bg-emerald-500/20 text-emerald-300 px-3 py-2 rounded-lg text-sm font-semibold border border-emerald-500/30">
                             <p className="text-xs text-emerald-400">
-                              Health Score
+                              {t('history.healthScore', { defaultValue: 'Health Score' })}
                             </p>
                             {health.toFixed(0)}%
                           </div>
                         </div>
                         <div className="bg-slate-800/50 text-gray-300 px-3 py-2 rounded-lg text-sm font-medium w-full text-center border border-slate-700">
-                          Weight: {weight.toFixed(1)} kg
+                          {t('history.weight')}: {weight.toFixed(1)} kg
                         </div>
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold mb-2 text-white">
-                          Analysis Details
+                          {t('analyze.results')}
                         </h3>
-                        <AnalysisResults result={selected} />
+                        <AnalysisResults result={selected} t={t} />
                       </div>
                     </div>
 
                     {chartData.length > 1 && (
                       <div>
                         <h3 className="text-lg font-semibold mb-2 text-white flex items-center gap-2">
-                          <BarChart size={18} className="text-sky-400" /> Recent
-                          Trends
+                          <BarChart size={18} className="text-sky-400" /> {t('history.recentTrends', { defaultValue: 'Recent Trends' })}
                         </h3>
                         <div className="h-48 w-full -ml-4">
                           <ChartContainer

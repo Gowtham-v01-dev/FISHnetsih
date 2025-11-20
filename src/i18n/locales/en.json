@@ -39,7 +39,30 @@
     "likeCount_plural": "{{count}} likes",
     "commentCount": "{{count}} comment",
     "commentCount_plural": "{{count}} comments",
-    "timeAgo": "{{time}} ago"
+    "timeAgo": "{{time}} ago",
+    "sampleComment1": "Amazing catch! 🎣",
+    "sampleComment2": "What a beauty!",
+    "sampleComment3": "Great photo quality!",
+    "sampleComment4": "This species is rare!",
+    "sampleComment5": "Perfect timing! 🌊",
+    "shareTitle": "Check out this {{species}} catch on Fish Net!",
+    "likedOffline": "Liked offline",
+    "likedOfflineDesc": "Your like will sync when you're back online",
+    "commentAdded": "Comment added!",
+    "commentPosted": "Comment posted successfully",
+    "commentSavedOffline": "Comment saved offline",
+    "commentFailed": "Failed to add comment",
+    "linkCopied": "Link copied!",
+    "shareDesc": "Share this awesome catch with friends.",
+    "syncing": "Syncing your data...",
+    "refreshed": "Feed refreshed",
+    "latestLoaded": "Latest posts loaded",
+    "showingCached": "Showing cached posts",
+    "refreshFailed": "Refresh failed",
+    "couldNotRefresh": "Could not refresh feed",
+    "emptyTitle": "The Ocean is Quiet",
+    "emptyMessage": "Be the first to share a catch with the community!",
+    "createFirstPost": "Create First Post"
   },
   "analyze": {
     "title": "Analyze",
@@ -73,7 +96,11 @@
     "weight": "Weight",
     "length": "Length",
     "date": "Date",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "subtitle": "Your personal fishing log",
+    "healthScore": "Health Score",
+    "recentTrends": "Recent Trends",
+    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
   },
   "profile": {
     "title": "Profile",
@@ -87,7 +114,11 @@
     "bio": "Bio",
     "catches": "Catches",
     "followers": "Followers",
-    "following": "Following"
+    "following": "Following",
+    "posts": "Posts",
+    "likes": "Likes",
+    "myPosts": "My Posts",
+    "shareFirstCatch": "Share your first catch!"
   },
   "settings": {
     "title": "Settings",
@@ -141,7 +172,8 @@
     "success": "Success",
     "yes": "Yes",
     "no": "No",
-    "ok": "OK"
+    "ok": "OK",
+    "create": "New Post"
   },
   "chat": {
     "typeMessage": "Type a message...",
