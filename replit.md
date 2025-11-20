@@ -90,6 +90,18 @@ src/
 
 ## Recent Changes
 
+### Uniform Language Switching Implementation (2025-11-20)
+1. **Complete i18n Migration**: All pages (FeedPage, ProfilePage, HistoryPage) migrated from hardcoded English text to use translation keys
+2. **Translation Keys Added**: Added 30+ new keys to en.json covering:
+   - Feed page: Sample comments, share titles, toast messages, empty states
+   - Profile page: Stats labels, post messages, share titles
+   - History page: Subtitle, health score, analysis details, trends
+   - Common: New Post button
+3. **Hardcoded Language Names**: Language dropdown shows native script names (English, தமிழ், తెలుగు, हिन्दी, etc.)
+4. **Page Reload Mechanism**: Language change triggers 1-second delay then full page reload to ensure complete app refresh
+5. **All User-Facing Text Now Uses t()**: Toast messages, chart legends, sample comments, share dialogs, all UI labels
+6. **Implementation Approach**: All translation keys include defaultValue fallbacks, ensuring app works immediately while allowing translations to be added to other locale files later
+
 ### UI Enhancement & Internationalization (2025-09-29)
 1. **Navigation Branding**: Updated all pages (Feed, My Catches, Profile) to display "Fish Net" branding consistently
 2. **Loading Screens**: Added loading states (1s for login/signup, 1.5s for image upload/analyze) for better UX
