@@ -26,11 +26,13 @@ import { cn } from "@/lib/utils";
 
 interface NewPostDialogProps {
   trigger?: React.ReactNode;
+  children?: React.ReactNode;
   onPostCreated?: () => void;
 }
 
 export const NewPostDialog = ({
   trigger,
+  children,
   onPostCreated,
 }: NewPostDialogProps) => {
   const { t } = useTranslation();
@@ -163,7 +165,7 @@ export const NewPostDialog = ({
         user: currentUser,
         species,
         imageData: imagePreview,
-        caption: caption || `Caught a beautiful ${species}!`,
+        caption: caption || t('post.defaultCaption', { species }),
         confidence: Math.floor(Math.random() * 20) + 80, // Random confidence between 80-100
         healthScore: Math.floor(Math.random() * 20) + 80, // Random health score between 80-100
         estimatedWeight: parseFloat(weight) || Math.random() * 5 + 1,
@@ -209,7 +211,7 @@ export const NewPostDialog = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        {trigger || (
+        {children || trigger || (
           <Button
             size="sm"
             className="bg-gradient-primary hover:opacity-90 text-white shadow-glow"

@@ -213,6 +213,7 @@
     "weight": "Weight",
     "healthScore": "Health Score",
     "offline": "Offline",
-    "viewAllComments": "View all {{count}} comments"
+    "viewAllComments": "View all {{count}} comments",
+    "defaultCaption": "Caught a beautiful {{species}}!"
   }
 }

@@ -213,6 +213,7 @@
     "weight": "वजन",
     "healthScore": "स्वास्थ्य स्कोर",
     "offline": "ऑफलाइन",
-    "viewAllComments": "सभी {{count}} टिप्पणियां देखें"
+    "viewAllComments": "सभी {{count}} टिप्पणियां देखें",
+    "defaultCaption": "एक सुंदर {{species}} पकड़ा!"
   }
 }

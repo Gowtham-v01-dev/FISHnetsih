@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -6,19 +7,30 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CommunityChat } from './CommunityChat';
 import { ChatInterface } from './ChatInterface';
 
-export const MessagesDialog = () => {
+interface MessagesDialogProps {
+  children?: React.ReactNode;
+}
+
+export const MessagesDialog = ({ children }: MessagesDialogProps) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Button 
-        variant="ghost"
-        size="sm"
-        onClick={() => setOpen(true)}
-        className="text-muted-foreground hover:text-foreground"
-      >
-        <MessageCircle className="h-4 w-4" />
-      </Button>
+      {children ? (
+        <div onClick={() => setOpen(true)}>
+          {children}
+        </div>
+      ) : (
+        <Button 
+          variant="ghost"
+          size="sm"
+          onClick={() => setOpen(true)}
+          className="text-muted-foreground hover:text-foreground"
+        >
+          <MessageCircle className="h-4 w-4" />
+        </Button>
+      )}
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-4xl w-[95vw] h-[90vh] p-0 overflow-hidden">
@@ -30,14 +42,14 @@ export const MessagesDialog = () => {
                   className="data-[state=active]:bg-gradient-primary data-[state=active]:text-white"
                 >
                   <Users className="h-4 w-4 mr-2" />
-                  Community
+                  {t('feed.community')}
                 </TabsTrigger>
                 <TabsTrigger 
                   value="chat" 
                   className="data-[state=active]:bg-gradient-primary data-[state=active]:text-white"
                 >
                   <MessageCircle className="h-4 w-4 mr-2" />
-                  Chats
+                  {t('feed.directChats')}
                 </TabsTrigger>
               </TabsList>
             </div>

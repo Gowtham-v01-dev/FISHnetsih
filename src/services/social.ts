@@ -1,6 +1,8 @@
 // Enhanced Social Feed Service with Real-time Updates
 import { User } from './auth';
 
+export type { User };
+
 export interface SocialPost {
   id: string;
   userId: string;

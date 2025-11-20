@@ -7,8 +7,24 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { SocialPost } from '@/services/social';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow, type Locale } from 'date-fns';
+import { enUS, hi, ta, te, kn, gu, bn } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
+
+const localeMap: Record<string, Locale> = {
+  en: enUS,
+  hi: hi,
+  ta: ta,
+  te: te,
+  kn: kn,
+  ml: enUS, // Malayalam - fallback to English (no ml locale in date-fns)
+  gu: gu,
+  bn: bn,
+  pa: enUS, // Punjabi - fallback to English (no pa locale in date-fns)
+  mr: enUS, // Marathi - fallback to English (no mr locale in date-fns)
+  mwr: enUS, // Marwadi - fallback to English (no mwr locale in date-fns)
+  or: enUS,  // Odia - fallback to English (no or locale in date-fns)
+};
 
 interface PostCardProps {
   post: SocialPost;
@@ -27,11 +43,13 @@ export const PostCard = ({
   isLiked, 
   className 
 }: PostCardProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const formatTimeAgo = (timestamp: string) => {
-    return formatDistanceToNow(new Date(timestamp), { addSuffix: true });
+    const locale = localeMap[i18n.language] || enUS;
+    const distance = formatDistanceToNow(new Date(timestamp), { locale, addSuffix: true });
+    return distance;
   };
 
   const getConfidenceColor = (confidence: number) => {
