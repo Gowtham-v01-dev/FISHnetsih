@@ -90,7 +90,28 @@ src/
 
 ## Recent Changes
 
-### Uniform Language Switching Implementation (2025-11-20)
+### Complete i18n Implementation for All Components (2025-11-20)
+1. **Updated Vite Configuration**: Changed allowed host to match current Replit deployment URL
+2. **AnalyzePage Full Internationalization**: Replaced all hardcoded English text with i18n translation keys including:
+   - Hero section (AI Fish Scanner, descriptions, status messages)
+   - Professional Analysis card content
+   - All buttons (Capture & Analyze, Upload from Gallery, Calibrate Size)
+   - Feature grid (Accuracy, Instant Results, Health Score, Size Estimation)
+   - Loading states and error messages
+   - Toast notifications
+3. **MapPage Internationalization**: Added i18n support for Back button navigation
+4. **CommunityChat Complete Internationalization**: 
+   - Implemented render-time translation for all UI elements
+   - Converted sample messages to use translation keys (textKey) resolved at render time
+   - This ensures chat messages update when language changes (no cached translations)
+   - Placeholder text and tooltips now use i18n
+5. **Translation Files Updated**: Added 40+ new translation keys across all 12 language files:
+   - analyze section: 27 new keys (AI scanner, analysis states, errors, success messages)
+   - map section: 1 new key (back button)
+   - communityChat section: 14 new keys (UI labels and sample conversation messages)
+6. **Architecture Pattern**: Sample/seeded content now uses translation keys stored in state, with t() calls at render time to ensure language changes propagate immediately throughout the app
+
+### Uniform Language Switching Implementation (2025-11-20 - Earlier)
 1. **Complete i18n Migration**: All pages (FeedPage, ProfilePage, HistoryPage) migrated from hardcoded English text to use translation keys
 2. **Translation Keys Added**: Added 30+ new keys to en.json covering:
    - Feed page: Sample comments, share titles, toast messages, empty states
