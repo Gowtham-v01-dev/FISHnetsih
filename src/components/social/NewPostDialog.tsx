@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Plus, Upload, X, Fish, MapPin } from "lucide-react";
 import {
   Dialog,
@@ -32,6 +33,7 @@ export const NewPostDialog = ({
   trigger,
   onPostCreated,
 }: NewPostDialogProps) => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [imagePreview, setImagePreview] = useState<string>("");
   const [fileType, setFileType] = useState<"image" | "video" | null>(null);
@@ -114,8 +116,8 @@ export const NewPostDialog = ({
     if (file) {
       if (file.size > 10 * 1024 * 1024) {
         toast({
-          title: "File too large",
-          description: "Please select a file under 10MB",
+          title: t('post.fileTooLarge'),
+          description: t('post.fileTooLargeDesc'),
           variant: "destructive",
         });
         return;
@@ -136,8 +138,8 @@ export const NewPostDialog = ({
     const currentUser = authService.getState().user;
     if (!currentUser) {
       toast({
-        title: "Error",
-        description: "You must be logged in to create a post",
+        title: t('post.error'),
+        description: t('post.mustBeLoggedIn'),
         variant: "destructive",
       });
       return;
@@ -145,8 +147,8 @@ export const NewPostDialog = ({
 
     if (!imagePreview || !species) {
       toast({
-        title: "Missing information",
-        description: "Please select an image and species",
+        title: t('post.missingInfo'),
+        description: t('post.selectImageSpecies'),
         variant: "destructive",
       });
       return;
@@ -178,8 +180,8 @@ export const NewPostDialog = ({
       });
 
       toast({
-        title: "Post created!",
-        description: "Your catch has been shared with the community",
+        title: t('post.postCreated'),
+        description: t('post.postCreatedDesc'),
       });
 
       // Reset form
@@ -195,8 +197,8 @@ export const NewPostDialog = ({
       onPostCreated?.();
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to create post",
+        title: t('post.error'),
+        description: t('post.failedToCreate'),
         variant: "destructive",
       });
     } finally {
@@ -214,7 +216,7 @@ export const NewPostDialog = ({
             data-testid="button-new-post-trigger"
           >
             <Plus className="h-4 w-4 mr-1" />
-            New Post
+            {t('post.newPost')}
           </Button>
         )}
       </DialogTrigger>
@@ -225,14 +227,14 @@ export const NewPostDialog = ({
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Fish className="h-5 w-5 text-primary" />
-            Share Your Catch
+            {t('post.shareYourCatch')}
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
           {/* Image Upload */}
           <div className="space-y-2">
-            <Label htmlFor="image-upload">Fish Photo *</Label>
+            <Label htmlFor="image-upload">{t('post.fishPhotoRequired')}</Label>
             <div
               className={cn(
                 "relative border-2 border-dashed rounded-lg transition-colors",
@@ -286,9 +288,9 @@ export const NewPostDialog = ({
                   <>
                     <Upload className="h-10 w-10 text-muted-foreground mb-2" />
                     <p className="text-sm text-muted-foreground text-center">
-                      Click to upload image or video
+                      {t('post.clickToUpload')}
                       <br />
-                      <span className="text-xs">Max file size: 10MB</span>
+                      <span className="text-xs">{t('post.maxFileSize')}</span>
                     </p>
                   </>
                 )}
@@ -298,10 +300,10 @@ export const NewPostDialog = ({
 
           {/* Species Selection */}
           <div className="space-y-2">
-            <Label htmlFor="species">Fish Species *</Label>
+            <Label htmlFor="species">{t('post.fishSpeciesRequired')}</Label>
             <Select value={species} onValueChange={setSpecies}>
               <SelectTrigger id="species" data-testid="select-species">
-                <SelectValue placeholder="Select species" />
+                <SelectValue placeholder={t('post.selectSpecies')} />
               </SelectTrigger>
               <SelectContent>
                 {fishSpecies.map((fish) => (
@@ -315,12 +317,12 @@ export const NewPostDialog = ({
 
           {/* Weight */}
           <div className="space-y-2">
-            <Label htmlFor="weight">Estimated Weight (kg)</Label>
+            <Label htmlFor="weight">{t('post.estimatedWeight')}</Label>
             <Input
               id="weight"
               type="number"
               step="0.1"
-              placeholder="e.g., 2.5"
+              placeholder={t('post.weightPlaceholder')}
               value={weight}
               onChange={(e) => setWeight(e.target.value)}
               data-testid="input-weight"
@@ -331,11 +333,11 @@ export const NewPostDialog = ({
           <div className="space-y-2">
             <Label htmlFor="location">
               <MapPin className="h-4 w-4 inline mr-1" />
-              Location
+              {t('post.location')}
             </Label>
             <Select value={location} onValueChange={setLocation}>
               <SelectTrigger id="location" data-testid="select-location">
-                <SelectValue placeholder="Select location" />
+                <SelectValue placeholder={t('post.selectLocation')} />
               </SelectTrigger>
               <SelectContent>
                 {indianLocations.map((loc) => (
@@ -349,10 +351,10 @@ export const NewPostDialog = ({
 
           {/* Caption */}
           <div className="space-y-2">
-            <Label htmlFor="caption">Caption</Label>
+            <Label htmlFor="caption">{t('post.caption')}</Label>
             <Textarea
               id="caption"
-              placeholder="Share your fishing story..."
+              placeholder={t('post.captionPlaceholder')}
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               rows={3}
@@ -367,7 +369,7 @@ export const NewPostDialog = ({
             className="w-full bg-gradient-primary hover:opacity-90 text-white"
             data-testid="button-create-post"
           >
-            {isSubmitting ? "Creating..." : "Share Post"}
+            {isSubmitting ? t('post.creating') : t('post.sharePost')}
           </Button>
         </div>
       </DialogContent>

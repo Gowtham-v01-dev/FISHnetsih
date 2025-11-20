@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Heart, MessageCircle, Share, MapPin, Calendar, Fish } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -26,6 +27,7 @@ export const PostCard = ({
   isLiked, 
   className 
 }: PostCardProps) => {
+  const { t } = useTranslation();
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const formatTimeAgo = (timestamp: string) => {
@@ -59,7 +61,7 @@ export const PostCard = ({
             <h3 className="font-semibold text-foreground">{post.user.name}</h3>
             {post.isOffline && (
               <Badge variant="outline" className="text-xs bg-warning/10 text-warning border-warning/20">
-                Offline
+                {t('post.offline')}
               </Badge>
             )}
           </div>
@@ -123,11 +125,11 @@ export const PostCard = ({
         {/* Fish Details */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="text-xs text-muted-foreground mb-1">Weight</div>
+            <div className="text-xs text-muted-foreground mb-1">{t('post.weight')}</div>
             <div className="font-semibold text-foreground">{post.estimatedWeight.toFixed(1)} kg</div>
           </div>
           <div>
-            <div className="text-xs text-muted-foreground mb-1">Health Score</div>
+            <div className="text-xs text-muted-foreground mb-1">{t('post.healthScore')}</div>
             <div className="flex items-center gap-2">
               <Progress 
                 value={post.healthScore} 
@@ -216,7 +218,7 @@ export const PostCard = ({
                 onClick={() => onComment(post.id)}
                 className="text-muted-foreground hover:text-foreground p-0 h-auto"
               >
-                View all {post.comments.length} comments
+                {t('post.viewAllComments', { count: post.comments.length })}
               </Button>
             )}
           </div>
