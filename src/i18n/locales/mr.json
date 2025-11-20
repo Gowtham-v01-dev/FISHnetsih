@@ -40,9 +40,9 @@
     "commentCount": "{{count}} टिप्पणी",
     "commentCount_plural": "{{count}} टिप्पण्या",
     "timeAgo": "{{time}} पूर्वी",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "किती छान मासा! कुठे पकडलात?",
+    "sampleComment2": "अविश्वसनीय आकार!",
+    "sampleComment3": "मला मासेमारी शिकवा!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "कोणतेही संदेश नाहीत"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "नवीन पोस्ट",
+    "shareYourCatch": "तुमचा मासा शेअर करा",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "सुंदर {{species}} पकडला!"
   }
 }

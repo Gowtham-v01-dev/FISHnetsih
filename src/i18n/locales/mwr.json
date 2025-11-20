@@ -40,9 +40,9 @@
     "commentCount": "{{count}} टिप्पणी",
     "commentCount_plural": "{{count}} टिप्पणियां",
     "timeAgo": "{{time}} पैली",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "कित्तो बढ़िया पकड़! कठै पकड्यो?",
+    "sampleComment2": "अविश्वसनीय साइज!",
+    "sampleComment3": "म्हानै मछली पकड़णो सिखाओ!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "कोई संदेश कोनी"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "नवो पोस्ट",
+    "shareYourCatch": "आपरी मछली सांझी करो",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "सुंदर {{species}} पकड्यो!"
   }
 }

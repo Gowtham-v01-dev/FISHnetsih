@@ -40,9 +40,9 @@
     "commentCount": "{{count}} ટિપ્પણી",
     "commentCount_plural": "{{count}} ટિપ્પણીઓ",
     "timeAgo": "{{time}} પહેલાં",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "શું અદ્ભુત પકડ! ક્યાં પકડી?",
+    "sampleComment2": "અવિશ્વસનીય કદ!",
+    "sampleComment3": "મને માછલી પકડવાનું શીખવો!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "કોઈ સંદેશા નથી"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "નવી પોસ્ટ",
+    "shareYourCatch": "તમારી માછલી શેર કરો",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "સુંદર {{species}} પકડ્યું!"
   }
 }

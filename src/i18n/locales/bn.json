@@ -40,9 +40,9 @@
     "commentCount": "{{count}} মন্তব্য",
     "commentCount_plural": "{{count}} মন্তব্য",
     "timeAgo": "{{time}} আগে",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "কী দুর্দান্ত মাছ! কোথায় ধরেছেন?",
+    "sampleComment2": "অবিশ্বাস্য আকার!",
+    "sampleComment3": "আমাকে মাছ ধরা শেখান!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "কোনও বার্তা নেই"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "নতুন পোস্ট",
+    "shareYourCatch": "আপনার মাছ শেয়ার করুন",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "সুন্দর {{species}} ধরেছি!"
   }
 }

@@ -40,9 +40,9 @@
     "commentCount": "{{count}} వ్యాఖ్య",
     "commentCount_plural": "{{count}} వ్యాఖ్యలు",
     "timeAgo": "{{time}} క్రితం",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "ఎంత అద్భుతమైన చేప! ఎక్కడ పట్టుకున్నారు?",
+    "sampleComment2": "నమ్మలేని పరిమాణం!",
+    "sampleComment3": "నాకు చేపలు పట్టడం నేర్పించండి!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "సందేశాలు లేవు"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "కొత్త పోస్ట్",
+    "shareYourCatch": "మీ చేపను పంచుకోండి",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "అందమైన {{species}} పట్టుకున్నాను!"
   }
 }

@@ -40,9 +40,9 @@
     "commentCount": "{{count}} ಕಾಮೆಂಟ್",
     "commentCount_plural": "{{count}} ಕಾಮೆಂಟ್‌ಗಳು",
     "timeAgo": "{{time}} ಹಿಂದೆ",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "ಎಂತಹ ಅದ್ಭುತ ಹಿಡಿತ! ಎಲ್ಲಿ ಹಿಡಿದಿದ್ದೀರಿ?",
+    "sampleComment2": "ನಂಬಲಾಗದ ಗಾತ್ರ!",
+    "sampleComment3": "ನನಗೆ ಮೀನುಗಾರಿಕೆ ಕಲಿಸಿ!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "ಸಂದೇಶಗಳಿಲ್ಲ"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "ಹೊಸ ಪೋಸ್ಟ್",
+    "shareYourCatch": "ನಿಮ್ಮ ಮೀನುಗಾರಿಕೆಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "ಸುಂದರವಾದ {{species}} ಹಿಡಿದಿದ್ದೇನೆ!"
   }
 }

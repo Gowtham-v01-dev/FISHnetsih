@@ -40,9 +40,9 @@
     "commentCount": "{{count}} ମନ୍ତବ୍ୟ",
     "commentCount_plural": "{{count}} ମନ୍ତବ୍ୟ",
     "timeAgo": "{{time}} ପୂର୍ବରୁ",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "କେତେ ସୁନ୍ଦର ମାଛ! କେଉଁଠି ଧରିଲେ?",
+    "sampleComment2": "ଅବିଶ୍ୱାସନୀୟ ଆକାର!",
+    "sampleComment3": "ମୋତେ ମାଛଧରା ଶିଖାନ୍ତୁ!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ବାର୍ତ୍ତା ନାହିଁ"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "ନୂଆ ପୋଷ୍ଟ",
+    "shareYourCatch": "ଆପଣଙ୍କ ମାଛ ଶେୟାର କରନ୍ତୁ",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "ସୁନ୍ଦର {{species}} ଧରିଛି!"
   }
 }

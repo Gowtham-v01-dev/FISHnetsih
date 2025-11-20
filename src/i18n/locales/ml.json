@@ -40,9 +40,9 @@
     "commentCount": "{{count}} അഭിപ്രായം",
     "commentCount_plural": "{{count}} അഭിപ്രായങ്ങൾ",
     "timeAgo": "{{time}} മുമ്പ്",
-    "sampleComment1": "Amazing catch! 🎣",
-    "sampleComment2": "What a beauty!",
-    "sampleComment3": "Great photo quality!",
+    "sampleComment1": "എന്തൊരു അത്ഭുതകരമായ മീൻ! എവിടെ പിടിച്ചു?",
+    "sampleComment2": "അവിശ്വസനീയമായ വലിപ്പം!",
+    "sampleComment3": "എനിക്ക് മീൻപിടിത്തം പഠിപ്പിക്കൂ!",
     "sampleComment4": "This species is rare!",
     "sampleComment5": "Perfect timing! 🌊",
     "shareTitle": "Check out this {{species}} catch on Fish Net!",
@@ -184,8 +184,8 @@
     "noMessages": "സന്ദേശങ്ങളില്ല"
   },
   "post": {
-    "newPost": "New Post",
-    "shareYourCatch": "Share Your Catch",
+    "newPost": "പുതിയ പോസ്റ്റ്",
+    "shareYourCatch": "നിങ്ങളുടെ മത്സ്യം പങ്കിടുക",
     "fishPhoto": "Fish Photo",
     "fishPhotoRequired": "Fish Photo *",
     "fishSpecies": "Fish Species",
@@ -214,6 +214,6 @@
     "healthScore": "Health Score",
     "offline": "Offline",
     "viewAllComments": "View all {{count}} comments",
-    "defaultCaption": "Caught a beautiful {{species}}!"
+    "defaultCaption": "മനോഹരമായ {{species}} പിടിച്ചു!"
   }
 }
