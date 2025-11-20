@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Camera, Upload, Ruler } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CameraCapture } from "@/components/analyze/CameraCapture";
@@ -16,6 +17,7 @@ import { toast } from "@/components/ui/use-toast";
 import { addLocalCatch } from "@/utils/localCatches";
 
 export default function AnalyzePage() {
+  const { t } = useTranslation();
   const [showCamera, setShowCamera] = useState(false);
   const [showCalibration, setShowCalibration] = useState(false);
   const [imageData, setImageData] = useState<string | null>(null);
@@ -61,8 +63,8 @@ export default function AnalyzePage() {
     } catch (e) {
       console.error(e);
       toast({
-        title: "Analysis failed",
-        description: "Could not analyze image. Try again.",
+        title: t('analyze.analysisFailed'),
+        description: t('analyze.analysisFailedDesc'),
       });
     } finally {
       setIsAnalyzing(false);
@@ -99,10 +101,10 @@ export default function AnalyzePage() {
         is_synced: false,
       });
 
-      toast({ title: "Saved", description: "Catch saved to history." });
+      toast({ title: t('analyze.saved'), description: t('analyze.catchSaved') });
     } catch (e) {
       console.error(e);
-      toast({ title: "Save failed", description: "Could not save catch." });
+      toast({ title: t('analyze.saveFailed'), description: t('analyze.couldNotSave') });
     }
   };
 
@@ -164,7 +166,7 @@ export default function AnalyzePage() {
                 />
               </svg>
             </Button>
-            <span className="text-lg font-semibold">Analysis Results</span>
+            <span className="text-lg font-semibold">{t('analyze.analysisResultsTitle')}</span>
           </div>
 
           <ExplainabilityOverlay
@@ -200,7 +202,7 @@ export default function AnalyzePage() {
               }}
             >
               <Ruler className="w-4 h-4 mr-2" />
-              Calibrate Size
+              {t('analyze.calibrateSize')}
             </Button>
           </div>
         </div>
@@ -233,14 +235,14 @@ export default function AnalyzePage() {
           <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl"></div>
           <div className="relative">
             <h1 className="text-3xl font-bold text-gradient mb-3">
-              🐟 AI Fish Scanner
+              🐟 {t('analyze.aiScanner')}
             </h1>
             <p className="text-muted-foreground text-lg sm:animate-slide-up">
-              Professional species identification powered by advanced AI models
+              {t('analyze.processingDescription')}
             </p>
             <div className="mt-4 flex justify-center items-center gap-2 text-sm text-muted-foreground ">
               <div className="w-2 h-2 bg-success rounded-full animate-pulse-glow"></div>
-              <span>Real-time AI analysis • 50+ species</span>
+              <span>{t('analyze.realTimeStatus')}</span>
             </div>
           </div>
         </div>
@@ -253,11 +255,10 @@ export default function AnalyzePage() {
               <div className="p-2 bg-gradient-primary rounded-lg">
                 <Camera className="h-6 w-6 text-white" />
               </div>
-              Professional Analysis
+              {t('analyze.professionalAnalysis')}
             </CardTitle>
             <p className="text-muted-foreground">
-              Advanced neural network with confidence scoring and health
-              assessment
+              {t('analyze.advancedDescription')}
             </p>
           </CardHeader>
           <CardContent className="space-y-4 relative">
@@ -270,12 +271,12 @@ export default function AnalyzePage() {
                 {isAnalyzing ? (
                   <>
                     <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Analyzing with AI...</span>
+                    <span>{t('analyze.analyzingAI')}</span>
                   </>
                 ) : (
                   <>
                     <Camera className="h-6 w-6" />
-                    <span>📸 Capture & Analyze</span>
+                    <span>📸 {t('analyze.captureAnalyze')}</span>
                   </>
                 )}
               </div>
@@ -286,7 +287,7 @@ export default function AnalyzePage() {
                 <div className="w-full border-t border-muted"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">or</span>
+                <span className="bg-card px-2 text-muted-foreground">{t('analyze.or')}</span>
               </div>
             </div>
 
@@ -297,7 +298,7 @@ export default function AnalyzePage() {
               disabled={isAnalyzing}
             >
               <Upload className="h-5 w-5 mr-2" />
-              Upload from Gallery
+              {t('analyze.uploadGallery')}
             </Button>
           </CardContent>
         </Card>
@@ -306,25 +307,25 @@ export default function AnalyzePage() {
         <div className="grid grid-cols-2 gap-4 animate-fade-in">
           <Card className="card-mobile hover-scale text-center p-4">
             <div className="text-2xl mb-2">🎯</div>
-            <div className="font-semibold text-sm">95% Accuracy</div>
-            <div className="text-xs text-muted-foreground">AI Confidence</div>
+            <div className="font-semibold text-sm">{t('analyze.accuracy')}</div>
+            <div className="text-xs text-muted-foreground">{t('analyze.aiConfidence')}</div>
           </Card>
           <Card className="card-mobile hover-scale text-center p-4">
             <div className="text-2xl mb-2">⚡</div>
-            <div className="font-semibold text-sm">Instant Results</div>
+            <div className="font-semibold text-sm">{t('analyze.instantResults')}</div>
             <div className="text-xs text-muted-foreground">
-              Real-time Analysis
+              {t('analyze.realTimeAnalysis')}
             </div>
           </Card>
           <Card className="card-mobile hover-scale text-center p-4">
             <div className="text-2xl mb-2">💚</div>
-            <div className="font-semibold text-sm">Health Score</div>
-            <div className="text-xs text-muted-foreground">Freshness Check</div>
+            <div className="font-semibold text-sm">{t('analyze.healthScoreCheck')}</div>
+            <div className="text-xs text-muted-foreground">{t('analyze.freshnessCheck')}</div>
           </Card>
           <Card className="card-mobile hover-scale text-center p-4">
             <div className="text-2xl mb-2">📏</div>
-            <div className="font-semibold text-sm">Size Estimation</div>
-            <div className="text-xs text-muted-foreground">Weight & Length</div>
+            <div className="font-semibold text-sm">{t('analyze.sizeEstimation')}</div>
+            <div className="text-xs text-muted-foreground">{t('analyze.weightLength')}</div>
           </Card>
         </div>
 
@@ -337,10 +338,10 @@ export default function AnalyzePage() {
                 <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
               </div>
               <h3 className="text-lg font-semibold mb-2">
-                AI Analysis in Progress
+                {t('analyze.aiProgress')}
               </h3>
               <p className="text-muted-foreground text-sm">
-                Processing neural networks...
+                {t('analyze.processingNeural')}
               </p>
               <div className="mt-4 bg-muted rounded-full h-2 overflow-hidden">
                 <div className="bg-gradient-primary h-full animate-shimmer"></div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Send, Fish, Image as ImageIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,11 +15,13 @@ interface CommunityMessage {
   senderName: string;
   senderAvatar: string;
   text: string;
+  textKey?: string;
   imageUrl?: string;
   timestamp: string;
 }
 
 export const CommunityChat = () => {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<CommunityMessage[]>([]);
   const [newMessage, setNewMessage] = useState('');
   const [currentUser, setCurrentUser] = useState(authService.getState().user);
@@ -56,7 +59,8 @@ export const CommunityChat = () => {
         senderId: 'user1',
         senderName: 'Rajesh Kumar',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=rajesh',
-        text: 'Good morning fishermen! Just caught some beautiful Kingfish today at Marina Beach! 🎣',
+        text: '',
+        textKey: 'communityChat.morningGreeting',
         imageUrl: fishImages[1],
         timestamp: new Date(Date.now() - 7200000).toISOString()
       },
@@ -65,7 +69,8 @@ export const CommunityChat = () => {
         senderId: 'user2',
         senderName: 'Priya Sharma',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=priya',
-        text: 'Wow! That\'s a great catch! What time were you there?',
+        text: '',
+        textKey: 'communityChat.greatCatch',
         timestamp: new Date(Date.now() - 6800000).toISOString()
       },
       {
@@ -73,7 +78,8 @@ export const CommunityChat = () => {
         senderId: 'user1',
         senderName: 'Rajesh Kumar',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=rajesh',
-        text: 'Early morning around 5 AM. The tide was perfect!',
+        text: '',
+        textKey: 'communityChat.earlyMorning',
         timestamp: new Date(Date.now() - 6400000).toISOString()
       },
       {
@@ -81,7 +87,8 @@ export const CommunityChat = () => {
         senderId: 'user3',
         senderName: 'Arjun Patel',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=arjun',
-        text: 'Anyone tried the new spot near Besant Nagar? Heard there are good Pomfrets there.',
+        text: '',
+        textKey: 'communityChat.newSpot',
         imageUrl: fishImages[2],
         timestamp: new Date(Date.now() - 5400000).toISOString()
       },
@@ -90,7 +97,8 @@ export const CommunityChat = () => {
         senderId: 'user4',
         senderName: 'Lakshmi Reddy',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=lakshmi',
-        text: 'Yes! I was there yesterday. Caught 5 Pomfrets! The AI identified them with 92% confidence 🐟',
+        text: '',
+        textKey: 'communityChat.yesYesterday',
         timestamp: new Date(Date.now() - 4800000).toISOString()
       },
       {
@@ -98,7 +106,8 @@ export const CommunityChat = () => {
         senderId: 'user5',
         senderName: 'Vijay Kumar',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=vijay',
-        text: 'Check out these Mackerels from Kovalam! Fresh catch of the day! 🎣✨',
+        text: '',
+        textKey: 'communityChat.checkOutCatch',
         imageUrl: fishImages[3],
         timestamp: new Date(Date.now() - 3600000).toISOString()
       },
@@ -107,7 +116,8 @@ export const CommunityChat = () => {
         senderId: 'user2',
         senderName: 'Priya Sharma',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=priya',
-        text: 'Beautiful! The health score on those must be amazing!',
+        text: '',
+        textKey: 'communityChat.beautifulHealth',
         timestamp: new Date(Date.now() - 2400000).toISOString()
       },
       {
@@ -115,7 +125,8 @@ export const CommunityChat = () => {
         senderId: 'user6',
         senderName: 'Suresh Babu',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=suresh',
-        text: 'Weather is looking good for this weekend. Planning to go to Mahabalipuram. Anyone interested?',
+        text: '',
+        textKey: 'communityChat.weekendPlan',
         timestamp: new Date(Date.now() - 1800000).toISOString()
       },
       {
@@ -123,7 +134,8 @@ export const CommunityChat = () => {
         senderId: 'user7',
         senderName: 'Meera Singh',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=meera',
-        text: 'I\'m in! What time are we planning to leave?',
+        text: '',
+        textKey: 'communityChat.imIn',
         timestamp: new Date(Date.now() - 1200000).toISOString()
       },
       {
@@ -131,7 +143,8 @@ export const CommunityChat = () => {
         senderId: 'user8',
         senderName: 'Karthik Raj',
         senderAvatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=karthik',
-        text: 'Just used the app to identify this Sea Bass! Amazing AI technology! 🤖',
+        text: '',
+        textKey: 'communityChat.aiTech',
         imageUrl: fishImages[5],
         timestamp: new Date(Date.now() - 600000).toISOString()
       }
@@ -178,8 +191,8 @@ export const CommunityChat = () => {
           <Fish className="h-6 w-6 text-white" />
         </div>
         <div className="flex-1">
-          <h3 className="font-semibold text-foreground">FishermanIndia</h3>
-          <p className="text-xs text-muted-foreground">Community chat for all fishermen</p>
+          <h3 className="font-semibold text-foreground">{t('communityChat.title')}</h3>
+          <p className="text-xs text-muted-foreground">{t('communityChat.subtitle')}</p>
         </div>
       </div>
 
@@ -223,7 +236,7 @@ export const CommunityChat = () => {
                       ? "bg-gradient-primary text-white" 
                       : "bg-muted text-foreground"
                   )}>
-                    <p className="text-sm">{message.text}</p>
+                    <p className="text-sm">{message.textKey ? t(message.textKey) : message.text}</p>
                     <p className={cn(
                       "text-xs mt-1",
                       isOwn ? "text-white/70" : "text-muted-foreground"
@@ -245,7 +258,7 @@ export const CommunityChat = () => {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Type a message... (images not allowed)"
+            placeholder={t('communityChat.typeMessage')}
             className="flex-1"
           />
           <Button 
@@ -253,7 +266,7 @@ export const CommunityChat = () => {
             size="icon"
             disabled
             className="opacity-50"
-            title="Image sharing not available in community chat"
+            title={t('communityChat.imageNotAvailable')}
           >
             <ImageIcon className="h-4 w-4" />
           </Button>
