@@ -111,6 +111,7 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
     setSelectedLanguage(pendingLanguage);
     setShowLanguageConfirm(false);
     toast.success(t('settings.languageChanged'));
+    window.location.reload();
   };
 
   const handleSave = async () => {
@@ -133,18 +134,18 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
   };
 
   const languages = [
-    { code: 'en', name: t('languages.en') },
-    { code: 'ta', name: t('languages.ta') },
-    { code: 'te', name: t('languages.te') },
-    { code: 'hi', name: t('languages.hi') },
-    { code: 'kn', name: t('languages.kn') },
-    { code: 'ml', name: t('languages.ml') },
-    { code: 'gu', name: t('languages.gu') },
-    { code: 'mwr', name: t('languages.mwr') },
-    { code: 'bn', name: t('languages.bn') },
-    { code: 'pa', name: t('languages.pa') },
-    { code: 'mr', name: t('languages.mr') },
-    { code: 'or', name: t('languages.or') },
+    { code: 'en', name: 'English' },
+    { code: 'ta', name: 'தமிழ்' },
+    { code: 'te', name: 'తెలుగు' },
+    { code: 'hi', name: 'हिन्दी' },
+    { code: 'kn', name: 'ಕನ್ನಡ' },
+    { code: 'ml', name: 'മലയാളം' },
+    { code: 'gu', name: 'ગુજરાતી' },
+    { code: 'mwr', name: 'मारवाड़ी' },
+    { code: 'bn', name: 'বাংলা' },
+    { code: 'pa', name: 'ਪੰਜਾਬੀ' },
+    { code: 'mr', name: 'मराठी' },
+    { code: 'or', name: 'ଓଡ଼ିଆ' },
   ];
 
   return (
