@@ -39,7 +39,30 @@
     "likeCount_plural": "{{count}} ഇഷ്ടങ്ങൾ",
     "commentCount": "{{count}} അഭിപ്രായം",
     "commentCount_plural": "{{count}} അഭിപ്രായങ്ങൾ",
-    "timeAgo": "{{time}} മുമ്പ്"
+    "timeAgo": "{{time}} മുമ്പ്",
+    "sampleComment1": "Amazing catch! 🎣",
+    "sampleComment2": "What a beauty!",
+    "sampleComment3": "Great photo quality!",
+    "sampleComment4": "This species is rare!",
+    "sampleComment5": "Perfect timing! 🌊",
+    "shareTitle": "Check out this {{species}} catch on Fish Net!",
+    "likedOffline": "Liked offline",
+    "likedOfflineDesc": "Your like will sync when you're back online",
+    "commentAdded": "Comment added!",
+    "commentPosted": "Comment posted successfully",
+    "commentSavedOffline": "Comment saved offline",
+    "commentFailed": "Failed to add comment",
+    "linkCopied": "Link copied!",
+    "shareDesc": "Share this awesome catch with friends.",
+    "syncing": "Syncing your data...",
+    "refreshed": "Feed refreshed",
+    "latestLoaded": "Latest posts loaded",
+    "showingCached": "Showing cached posts",
+    "refreshFailed": "Refresh failed",
+    "couldNotRefresh": "Could not refresh feed",
+    "emptyTitle": "The Ocean is Quiet",
+    "emptyMessage": "Be the first to share a catch with the community!",
+    "createFirstPost": "Create First Post"
   },
   "analyze": {
     "title": "വിശകലനം",
@@ -73,7 +96,11 @@
     "weight": "ഭാരം",
     "length": "നീളം",
     "date": "തീയതി",
-    "viewDetails": "വിശദാംശങ്ങൾ കാണുക"
+    "viewDetails": "വിശദാംശങ്ങൾ കാണുക",
+    "subtitle": "Your personal fishing log",
+    "healthScore": "Health Score",
+    "recentTrends": "Recent Trends",
+    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
   },
   "profile": {
     "title": "പ്രൊഫൈൽ",
@@ -87,7 +114,11 @@
     "bio": "ബയോ",
     "catches": "മത്സ്യങ്ങൾ",
     "followers": "അനുയായികൾ",
-    "following": "പിന്തുടരുന്നു"
+    "following": "പിന്തുടരുന്നു",
+    "posts": "Posts",
+    "likes": "Likes",
+    "myPosts": "My Posts",
+    "shareFirstCatch": "Share your first catch!"
   },
   "settings": {
     "title": "ക്രമീകരണങ്ങൾ",
@@ -124,7 +155,8 @@
     "mwr": "मारवाड़ी",
     "bn": "বাংলা",
     "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी"
+    "mr": "मराठी",
+    "or": "Odia"
   },
   "common": {
     "save": "സേവ് ചെയ്യുക",
@@ -140,7 +172,8 @@
     "success": "വിജയം",
     "yes": "അതെ",
     "no": "ഇല്ല",
-    "ok": "ശരി"
+    "ok": "ശരി",
+    "create": "New Post"
   },
   "chat": {
     "typeMessage": "സന്ദേശം ടൈപ്പ് ചെയ്യുക...",
@@ -149,5 +182,37 @@
     "offline": "ഓഫ്‌ലൈൻ",
     "typing": "ടൈപ്പ് ചെയ്യുന്നു...",
     "noMessages": "സന്ദേശങ്ങളില്ല"
+  },
+  "post": {
+    "newPost": "New Post",
+    "shareYourCatch": "Share Your Catch",
+    "fishPhoto": "Fish Photo",
+    "fishPhotoRequired": "Fish Photo *",
+    "fishSpecies": "Fish Species",
+    "fishSpeciesRequired": "Fish Species *",
+    "estimatedWeight": "Estimated Weight (kg)",
+    "weightPlaceholder": "e.g., 2.5",
+    "location": "Location",
+    "selectLocation": "Select location",
+    "caption": "Caption",
+    "captionPlaceholder": "Share your fishing story...",
+    "clickToUpload": "Click to upload image or video",
+    "maxFileSize": "Max file size: 10MB",
+    "selectSpecies": "Select species",
+    "creating": "Creating...",
+    "sharePost": "Share Post",
+    "postCreated": "Post created!",
+    "postCreatedDesc": "Your catch has been shared with the community",
+    "error": "Error",
+    "mustBeLoggedIn": "You must be logged in to create a post",
+    "missingInfo": "Missing information",
+    "selectImageSpecies": "Please select an image and species",
+    "failedToCreate": "Failed to create post",
+    "fileTooLarge": "File too large",
+    "fileTooLargeDesc": "Please select a file under 10MB",
+    "weight": "Weight",
+    "healthScore": "Health Score",
+    "offline": "Offline",
+    "viewAllComments": "View all {{count}} comments"
   }
 }

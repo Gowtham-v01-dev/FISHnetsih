@@ -39,7 +39,30 @@
     "likeCount_plural": "{{count}} ఇష్టాలు",
     "commentCount": "{{count}} వ్యాఖ్య",
     "commentCount_plural": "{{count}} వ్యాఖ్యలు",
-    "timeAgo": "{{time}} క్రితం"
+    "timeAgo": "{{time}} క్రితం",
+    "sampleComment1": "Amazing catch! 🎣",
+    "sampleComment2": "What a beauty!",
+    "sampleComment3": "Great photo quality!",
+    "sampleComment4": "This species is rare!",
+    "sampleComment5": "Perfect timing! 🌊",
+    "shareTitle": "Check out this {{species}} catch on Fish Net!",
+    "likedOffline": "Liked offline",
+    "likedOfflineDesc": "Your like will sync when you're back online",
+    "commentAdded": "Comment added!",
+    "commentPosted": "Comment posted successfully",
+    "commentSavedOffline": "Comment saved offline",
+    "commentFailed": "Failed to add comment",
+    "linkCopied": "Link copied!",
+    "shareDesc": "Share this awesome catch with friends.",
+    "syncing": "Syncing your data...",
+    "refreshed": "Feed refreshed",
+    "latestLoaded": "Latest posts loaded",
+    "showingCached": "Showing cached posts",
+    "refreshFailed": "Refresh failed",
+    "couldNotRefresh": "Could not refresh feed",
+    "emptyTitle": "The Ocean is Quiet",
+    "emptyMessage": "Be the first to share a catch with the community!",
+    "createFirstPost": "Create First Post"
   },
   "analyze": {
     "title": "విశ్లేషణ",
@@ -73,7 +96,11 @@
     "weight": "బరువు",
     "length": "పొడవు",
     "date": "తేదీ",
-    "viewDetails": "వివరాలను చూడండి"
+    "viewDetails": "వివరాలను చూడండి",
+    "subtitle": "Your personal fishing log",
+    "healthScore": "Health Score",
+    "recentTrends": "Recent Trends",
+    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
   },
   "profile": {
     "title": "ప్రొఫైల్",
@@ -87,7 +114,11 @@
     "bio": "బయో",
     "catches": "చేపలు",
     "followers": "అనుచరులు",
-    "following": "అనుసరిస్తోంది"
+    "following": "అనుసరిస్తోంది",
+    "posts": "Posts",
+    "likes": "Likes",
+    "myPosts": "My Posts",
+    "shareFirstCatch": "Share your first catch!"
   },
   "settings": {
     "title": "సెట్టింగ్‌లు",
@@ -124,7 +155,8 @@
     "mwr": "मारवाड़ी",
     "bn": "বাংলা",
     "pa": "ਪੰਜਾਬੀ",
-    "mr": "मराठी"
+    "mr": "मराठी",
+    "or": "Odia"
   },
   "common": {
     "save": "సేవ్ చేయండి",
@@ -140,7 +172,8 @@
     "success": "విజయం",
     "yes": "అవును",
     "no": "కాదు",
-    "ok": "సరే"
+    "ok": "సరే",
+    "create": "New Post"
   },
   "chat": {
     "typeMessage": "సందేశాన్ని టైప్ చేయండి...",
@@ -149,5 +182,37 @@
     "offline": "ఆఫ్‌లైన్",
     "typing": "టైప్ చేస్తోంది...",
     "noMessages": "సందేశాలు లేవు"
+  },
+  "post": {
+    "newPost": "New Post",
+    "shareYourCatch": "Share Your Catch",
+    "fishPhoto": "Fish Photo",
+    "fishPhotoRequired": "Fish Photo *",
+    "fishSpecies": "Fish Species",
+    "fishSpeciesRequired": "Fish Species *",
+    "estimatedWeight": "Estimated Weight (kg)",
+    "weightPlaceholder": "e.g., 2.5",
+    "location": "Location",
+    "selectLocation": "Select location",
+    "caption": "Caption",
+    "captionPlaceholder": "Share your fishing story...",
+    "clickToUpload": "Click to upload image or video",
+    "maxFileSize": "Max file size: 10MB",
+    "selectSpecies": "Select species",
+    "creating": "Creating...",
+    "sharePost": "Share Post",
+    "postCreated": "Post created!",
+    "postCreatedDesc": "Your catch has been shared with the community",
+    "error": "Error",
+    "mustBeLoggedIn": "You must be logged in to create a post",
+    "missingInfo": "Missing information",
+    "selectImageSpecies": "Please select an image and species",
+    "failedToCreate": "Failed to create post",
+    "fileTooLarge": "File too large",
+    "fileTooLargeDesc": "Please select a file under 10MB",
+    "weight": "Weight",
+    "healthScore": "Health Score",
+    "offline": "Offline",
+    "viewAllComments": "View all {{count}} comments"
   }
 }
