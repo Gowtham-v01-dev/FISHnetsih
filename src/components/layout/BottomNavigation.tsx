@@ -1,5 +1,6 @@
 import { Home, Camera, Map, History, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
 
 interface BottomNavigationProps {
@@ -7,15 +8,16 @@ interface BottomNavigationProps {
 }
 
 export const BottomNavigation = ({ className }: BottomNavigationProps) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const currentPath = location.pathname;
 
   const navItems = [
-    { id: 'feed', path: '/', icon: Home, label: 'Feed' },
-    { id: 'analyze', path: '/analyze', icon: Camera, label: 'Analyze' },
-    { id: 'map', path: '/map', icon: Map, label: 'Map' },
-    { id: 'history', path: '/history', icon: History, label: 'History' },
-    { id: 'profile', path: '/profile', icon: User, label: 'Profile' },
+    { id: 'feed', path: '/', icon: Home, label: t('feed.title') },
+    { id: 'analyze', path: '/analyze', icon: Camera, label: t('analyze.title') },
+    { id: 'map', path: '/map', icon: Map, label: t('map.title') },
+    { id: 'history', path: '/history', icon: History, label: t('history.title') },
+    { id: 'profile', path: '/profile', icon: User, label: t('profile.title') },
   ];
 
   return (

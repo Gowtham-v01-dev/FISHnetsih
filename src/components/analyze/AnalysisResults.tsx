@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, MapPin, Calendar, Camera, Share, Download, Award, Target, Heart, Zap, Star, TrendingUp, Eye, EyeOff, Ruler } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -28,6 +29,7 @@ export const AnalysisResults = ({
   onRetake,
   className
 }: AnalysisResultsProps) => {
+  const { t } = useTranslation();
   const [isSaving, setIsSaving] = useState(false);
   const [showBoundingBox, setShowBoundingBox] = useState(true);
   const [showPDFGenerator, setShowPDFGenerator] = useState(false);
@@ -113,7 +115,7 @@ export const AnalysisResults = ({
             <div className="p-2 bg-gradient-primary rounded-lg">
               <Award className="w-5 h-5 text-white" />
             </div>
-            Species Identification
+            {t('analyze.speciesIdentification')}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -121,10 +123,10 @@ export const AnalysisResults = ({
             <div className="flex items-center justify-center gap-3 mb-2">
               <Badge className="bg-gradient-primary text-white hover:opacity-90">
                 <Star className="w-3 h-3 mr-1" />
-                Identified Species
+                {t('analyze.identifiedSpecies')}
               </Badge>
               <Badge variant="outline" className="border-primary/30">
-                Count: {result.estimatedCount}
+                {t('analyze.count')}: {result.estimatedCount}
               </Badge>
             </div>
             <div className="text-3xl font-bold mt-2">
@@ -141,7 +143,7 @@ export const AnalysisResults = ({
             <div className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg">
               <TrendingUp className="w-5 h-5 text-white" />
             </div>
-            AI Analysis Metrics
+            {t('analyze.aiAnalysisMetrics')}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -150,7 +152,7 @@ export const AnalysisResults = ({
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Target className="w-4 h-4 text-primary" />
-                <span className="font-semibold">AI Confidence</span>
+                <span className="font-semibold">{t('analyze.aiConfidenceLabel')}</span>
               </div>
               <div className={cn("text-lg font-bold px-3 py-1 rounded-full border", getConfidenceBg(result.confidence))}>
                 <span className={getConfidenceColor(result.confidence)}>
@@ -178,7 +180,7 @@ export const AnalysisResults = ({
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Heart className="w-4 h-4 text-red-500" />
-                <span className="font-semibold">Health/Freshness</span>
+                <span className="font-semibold">{t('analyze.healthFreshness')}</span>
               </div>
               <div className="text-lg font-bold">
                 <span className={getHealthColor(result.healthScore)}>
@@ -204,26 +206,26 @@ export const AnalysisResults = ({
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-100">
               <div className="flex items-center gap-2 mb-2">
                 <Zap className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-800">Est. Weight</span>
+                <span className="text-sm font-medium text-blue-800">{t('analyze.estWeight')}</span>
               </div>
               <div className="text-2xl font-bold text-blue-600">
                 {result.estimatedWeight.toFixed(1)} kg
               </div>
               <div className="text-xs text-blue-500 mt-1">
-                Based on species data
+                {t('analyze.basedOnSpeciesData')}
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-xl border border-emerald-100">
               <div className="flex items-center gap-2 mb-2">
                 <Award className="w-4 h-4 text-emerald-600" />
-                <span className="text-sm font-medium text-emerald-800">Quality Score</span>
+                <span className="text-sm font-medium text-emerald-800">{t('analyze.qualityScore')}</span>
               </div>
               <div className={cn("text-2xl font-bold", getQualityColor(quality))}>
                 {quality.toFixed(0)}%
               </div>
               <div className="text-xs text-emerald-500 mt-1">
-                Combined metric
+                {t('analyze.combinedMetric')}
               </div>
             </div>
           </div>
@@ -240,7 +242,7 @@ export const AnalysisResults = ({
                 <Ruler className="w-4 h-4 text-white" />
               </div>
               <div>
-                <div className="font-semibold">Measured Length</div>
+                <div className="font-semibold">{t('analyze.measuredLength')}</div>
                 <div className="text-sm text-muted-foreground font-mono">
                   1.4 m
                 </div>
@@ -251,7 +253,7 @@ export const AnalysisResults = ({
                 <Calendar className="w-4 h-4 text-white" />
               </div>
               <div>
-                <div className="font-semibold">Catch Time</div>
+                <div className="font-semibold">{t('analyze.catchTime')}</div>
                 <div className="text-sm text-muted-foreground">
                   {new Date().toLocaleString()}
                 </div>
@@ -263,7 +265,7 @@ export const AnalysisResults = ({
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold">GPS Location:</span>
+                  <span className="font-semibold">{t('analyze.gpsLocation')}:</span>
                   <button
                     type="button"
                     className="text-sm text-muted-foreground font-mono underline hover:text-primary focus:outline-none"
@@ -311,7 +313,7 @@ export const AnalysisResults = ({
             className="flex-1 h-12 border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300"
           >
             <Camera className="w-5 h-5 mr-2" />
-            Retake Photo
+            {t('analyze.retakePhoto')}
           </Button>
           
           <Button
@@ -322,12 +324,12 @@ export const AnalysisResults = ({
             {isSaving ? (
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Saving...
+                {t('analyze.saving')}
               </div>
             ) : (
               <>
                 <Check className="w-5 h-5 mr-2" />
-                Save to History
+                {t('analyze.saveToHistory')}
               </>
             )}
           </Button>
@@ -341,7 +343,7 @@ export const AnalysisResults = ({
             className="flex-1 h-11 bg-gradient-to-r from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 text-blue-700 border-0"
           >
             <Share className="w-4 h-4 mr-2" />
-            Share Catch
+            {t('analyze.shareCatch')}
           </Button>
           
           <Button 
@@ -350,7 +352,7 @@ export const AnalysisResults = ({
             className="flex-1 h-11 bg-gradient-to-r from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 border-0"
           >
             <Download className="w-4 h-4 mr-2" />
-            Export PDF
+            {t('analyze.exportPDF')}
           </Button>
         </div>
       </div>
@@ -380,7 +382,7 @@ export const AnalysisResults = ({
               onClick={() => setShowPDFGenerator(false)}
               className="w-full mt-4"
             >
-              Close
+              {t('analyze.close')}
             </Button>
           </div>
         </div>

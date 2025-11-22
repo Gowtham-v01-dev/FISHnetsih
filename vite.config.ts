@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "0.0.0.0",                    // lets other devices connect
     port: 5000,
     // strictPort: true,
-    allowedHosts: ["0552c9e4-c349-4f8c-a991-39a239e2dd4b-00-19nu7gwm6w7zp.worf.replit.dev"],
+    allowedHosts: ["0552c9e4-c349-4f8c-a991-39a239e2dd4b-00-19nu7gwm6w7zp.worf.replit.dev", "08d4fe03-50d1-4149-b990-f922034150e3-00-1d3ooea16efx.riker.replit.dev"],
     // https: {                           // 👈 add this block
     //   key: fs.readFileSync("./192.168.0.5-key.pem"),
     //   cert: fs.readFileSync("./192.168.0.5.pem")
