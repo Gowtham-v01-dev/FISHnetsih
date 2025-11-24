@@ -43,26 +43,26 @@
     "sampleComment1": "ਕੀ ਸ਼ਾਨਦਾਰ ਮੱਛੀ! ਕਿੱਥੇ ਫੜੀ?",
     "sampleComment2": "ਅਵਿਸ਼ਵਾਸ਼ਯੋਗ ਆਕਾਰ!",
     "sampleComment3": "ਮੈਨੂੰ ਮੱਛੀਆਂ ਫੜਨਾ ਸਿਖਾਓ!",
-    "sampleComment4": "This species is rare!",
-    "sampleComment5": "Perfect timing! 🌊",
-    "shareTitle": "Check out this {{species}} catch on Fish Net!",
-    "likedOffline": "Liked offline",
-    "likedOfflineDesc": "Your like will sync when you're back online",
-    "commentAdded": "Comment added!",
-    "commentPosted": "Comment posted successfully",
-    "commentSavedOffline": "Comment saved offline",
-    "commentFailed": "Failed to add comment",
-    "linkCopied": "Link copied!",
-    "shareDesc": "Share this awesome catch with friends.",
-    "syncing": "Syncing your data...",
-    "refreshed": "Feed refreshed",
-    "latestLoaded": "Latest posts loaded",
-    "showingCached": "Showing cached posts",
-    "refreshFailed": "Refresh failed",
-    "couldNotRefresh": "Could not refresh feed",
-    "emptyTitle": "The Ocean is Quiet",
-    "emptyMessage": "Be the first to share a catch with the community!",
-    "createFirstPost": "Create First Post"
+    "sampleComment4": "ਇਹ ਪ੍ਰਜਾਤੀ ਦੁਰਲੱਭ ਹੈ!",
+    "sampleComment5": "ਸੰਪੂਰਨ ਸਮਾਂ! 🌊",
+    "shareTitle": "ਫਿਸ਼ ਨੈੱਟ 'ਤੇ ਇਸ {{species}} ਮੱਛੀ ਨੂੰ ਦੇਖੋ!",
+    "likedOffline": "ਆਫਲਾਈਨ ਪਸੰਦ ਕੀਤਾ",
+    "likedOfflineDesc": "ਜਦੋਂ ਤੁਸੀਂ ਵਾਪਸ ਔਨਲਾਈਨ ਹੋਵੋਗੇ ਤਾਂ ਤੁਹਾਡੀ ਪਸੰਦ ਸਿੰਕ ਹੋ ਜਾਵੇਗੀ",
+    "commentAdded": "ਟਿੱਪਣੀ ਜੋੜੀ ਗਈ!",
+    "commentPosted": "ਟਿੱਪਣੀ ਸਫਲਤਾਪੂਰਵਕ ਪੋਸਟ ਕੀਤੀ ਗਈ",
+    "commentSavedOffline": "ਟਿੱਪਣੀ ਆਫਲਾਈਨ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਗਈ",
+    "commentFailed": "ਟਿੱਪਣੀ ਜੋੜਨ ਵਿੱਚ ਅਸਫਲ",
+    "linkCopied": "ਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ!",
+    "shareDesc": "ਦੋਸਤਾਂ ਨਾਲ ਇਹ ਸ਼ਾਨਦਾਰ ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ।",
+    "syncing": "ਤੁਹਾਡਾ ਡੇਟਾ ਸਿੰਕ ਹੋ ਰਿਹਾ ਹੈ...",
+    "refreshed": "ਫੀਡ ਰਿਫ੍ਰੈਸ਼ ਹੋਇਆ",
+    "latestLoaded": "ਤਾਜ਼ੀਆਂ ਪੋਸਟਾਂ ਲੋਡ ਹੋਈਆਂ",
+    "showingCached": "ਕੈਸ਼ਡ ਪੋਸਟਾਂ ਦਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ",
+    "refreshFailed": "ਰਿਫ੍ਰੈਸ਼ ਅਸਫਲ",
+    "couldNotRefresh": "ਫੀਡ ਰਿਫ੍ਰੈਸ਼ ਨਹੀਂ ਹੋ ਸਕੀ",
+    "emptyTitle": "ਸਮੁੰਦਰ ਸ਼ਾਂਤ ਹੈ",
+    "emptyMessage": "ਕਮਿਊਨਿਟੀ ਨਾਲ ਮੱਛੀ ਸਾਂਝੀ ਕਰਨ ਵਾਲੇ ਪਹਿਲੇ ਵਿਅਕਤੀ ਬਣੋ!",
+    "createFirstPost": "ਪਹਿਲੀ ਪੋਸਟ ਬਣਾਓ"
   },
   "analyze": {
     "title": "ਵਿਸ਼ਲੇਸ਼ਣ",
@@ -108,13 +108,29 @@
     "calibrateSize": "ਆਕਾਰ ਕੈਲਿਬ੍ਰੇਟ ਕਰੋ"
   },
   "map": {
-    "title": "ਨਕਸ਼ਾ",
+    "title": "ਸੰਸਾਰ ਦਾ ਦ੍ਰਿਸ਼",
     "search": "ਸਥਾਨ ਖੋਜੋ...",
     "myCatches": "ਮੇਰੀਆਂ ਮੱਛੀਆਂ",
     "viewOnMap": "ਨਕਸ਼ੇ 'ਤੇ ਵੇਖੋ",
     "location": "ਸਥਾਨ",
     "noLocation": "ਕੋਈ ਸਥਾਨ ਡਾਟਾ ਨਹੀਂ",
-    "back": "ਵਾਪਸ"
+    "back": "ਵਾਪਸ",
+    "tabs": {
+      "map": "ਨਕਸ਼ਾ",
+      "news": "ਖ਼ਬਰਾਂ",
+      "weather": "ਮੌਸਮ"
+    },
+    "news": {
+      "title": "ਮੱਛੀ ਫੜਨ ਵਾਲਿਆਂ ਦੀਆਂ ਖ਼ਬਰਾਂ",
+      "loading": "ਖ਼ਬਰਾਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ...",
+      "noNews": "ਕੋਈ ਖ਼ਬਰ ਉਪਲਬਧ ਨਹੀਂ",
+      "readMore": "ਹੋਰ ਪੜ੍ਹੋ",
+      "source": "ਸਰੋਤ"
+    },
+    "weather": {
+      "title": "ਮੌਸਮ ਦਾ ਪੂਰਵ ਅਨੁਮਾਨ",
+      "loading": "ਮੌਸਮ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ..."
+    }
   },
   "communityChat": {
     "title": "FishermanIndia",
@@ -142,10 +158,10 @@
     "length": "ਲੰਬਾਈ",
     "date": "ਤਾਰੀਖ",
     "viewDetails": "ਵੇਰਵੇ ਵੇਖੋ",
-    "subtitle": "Your personal fishing log",
-    "healthScore": "Health Score",
-    "recentTrends": "Recent Trends",
-    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
+    "subtitle": "ਤੁਹਾਡਾ ਨਿੱਜੀ ਮੱਛੀ ਫੜਨ ਦਾ ਲੌਗ",
+    "healthScore": "ਸਿਹਤ ਸਕੋਰ",
+    "recentTrends": "ਹਾਲੀਆ ਰੁਝਾਨ",
+    "analysisDetails": "{{species}} ਲਈ ਵਿਸਥਾਰ ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜੇ ਇੱਥੇ ਪ੍ਰਦਰਸ਼ਿਤ ਕੀਤੇ ਜਾਣਗੇ, ਨਿਯਾਮਕ ਅਤੇ ਨਿੱਜੀ ਟਰੈਕਿੰਗ ਉਦੇਸ਼ਾਂ ਲਈ ਮੱਛੀ ਡੇਟਾ ਅਤੇ ਇਤਿਹਾਸਕ ਰੁਝਾਨਾਂ ਬਾਰੇ ਡੂੰਘੀਆਂ ਜਾਣਕਾਰੀਆਂ ਪ੍ਰਦਾਨ ਕਰਨਗੇ।"
   },
   "profile": {
     "title": "ਪ੍ਰੋਫਾਈਲ",
@@ -160,10 +176,10 @@
     "catches": "ਮੱਛੀਆਂ",
     "followers": "ਫਾਲੋਅਰਜ਼",
     "following": "ਫਾਲੋ ਕਰ ਰਿਹਾ ਹੈ",
-    "posts": "Posts",
-    "likes": "Likes",
-    "myPosts": "My Posts",
-    "shareFirstCatch": "Share your first catch!"
+    "posts": "ਪੋਸਟਾਂ",
+    "likes": "ਪਸੰਦਾਂ",
+    "myPosts": "ਮੇਰੀਆਂ ਪੋਸਟਾਂ",
+    "shareFirstCatch": "ਆਪਣੀ ਪਹਿਲੀ ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ!"
   },
   "settings": {
     "title": "ਸੈਟਿੰਗਾਂ",
@@ -218,7 +234,8 @@
     "yes": "ਹਾਂ",
     "no": "ਨਹੀਂ",
     "ok": "ਠੀਕ ਹੈ",
-    "create": "New Post"
+    "create": "ਨਵੀਂ ਪੋਸਟ",
+    "share": "ਸਾਂਝਾ ਕਰੋ"
   },
   "chat": {
     "typeMessage": "ਸੰਦੇਸ਼ ਟਾਈਪ ਕਰੋ...",
@@ -231,34 +248,34 @@
   "post": {
     "newPost": "ਨਵੀਂ ਪੋਸਟ",
     "shareYourCatch": "ਆਪਣੀ ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ",
-    "fishPhoto": "Fish Photo",
-    "fishPhotoRequired": "Fish Photo *",
-    "fishSpecies": "Fish Species",
-    "fishSpeciesRequired": "Fish Species *",
-    "estimatedWeight": "Estimated Weight (kg)",
-    "weightPlaceholder": "e.g., 2.5",
-    "location": "Location",
-    "selectLocation": "Select location",
-    "caption": "Caption",
-    "captionPlaceholder": "Share your fishing story...",
-    "clickToUpload": "Click to upload image or video",
-    "maxFileSize": "Max file size: 10MB",
-    "selectSpecies": "Select species",
-    "creating": "Creating...",
-    "sharePost": "Share Post",
-    "postCreated": "Post created!",
-    "postCreatedDesc": "Your catch has been shared with the community",
-    "error": "Error",
-    "mustBeLoggedIn": "You must be logged in to create a post",
-    "missingInfo": "Missing information",
-    "selectImageSpecies": "Please select an image and species",
-    "failedToCreate": "Failed to create post",
-    "fileTooLarge": "File too large",
-    "fileTooLargeDesc": "Please select a file under 10MB",
-    "weight": "Weight",
-    "healthScore": "Health Score",
-    "offline": "Offline",
-    "viewAllComments": "View all {{count}} comments",
+    "fishPhoto": "ਮੱਛੀ ਦੀ ਫੋਟੋ",
+    "fishPhotoRequired": "ਮੱਛੀ ਦੀ ਫੋਟੋ *",
+    "fishSpecies": "ਮੱਛੀ ਦੀ ਕਿਸਮ",
+    "fishSpeciesRequired": "ਮੱਛੀ ਦੀ ਕਿਸਮ *",
+    "estimatedWeight": "ਅਨੁਮਾਨਿਤ ਭਾਰ (ਕਿਲੋ)",
+    "weightPlaceholder": "ਉਦਾਹਰਨ, 2.5",
+    "location": "ਸਥਾਨ",
+    "selectLocation": "ਸਥਾਨ ਚੁਣੋ",
+    "caption": "ਸੁਰਖੀ",
+    "captionPlaceholder": "ਆਪਣੀ ਮੱਛੀ ਫੜਨ ਦੀ ਕਹਾਣੀ ਸਾਂਝੀ ਕਰੋ...",
+    "clickToUpload": "ਤਸਵੀਰ ਜਾਂ ਵੀਡੀਓ ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ",
+    "maxFileSize": "ਵੱਧ ਤੋਂ ਵੱਧ ਫਾਈਲ ਆਕਾਰ: 10MB",
+    "selectSpecies": "ਕਿਸਮ ਚੁਣੋ",
+    "creating": "ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ...",
+    "sharePost": "ਪੋਸਟ ਸਾਂਝੀ ਕਰੋ",
+    "postCreated": "ਪੋਸਟ ਬਣਾਈ ਗਈ!",
+    "postCreatedDesc": "ਤੁਹਾਡੀ ਮੱਛੀ ਕਮਿਊਨਿਟੀ ਨਾਲ ਸਾਂਝੀ ਕੀਤੀ ਗਈ ਹੈ",
+    "error": "ਗਲਤੀ",
+    "mustBeLoggedIn": "ਪੋਸਟ ਬਣਾਉਣ ਲਈ ਤੁਹਾਨੂੰ ਲੌਗਇਨ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ",
+    "missingInfo": "ਜਾਣਕਾਰੀ ਗੁੰਮ ਹੈ",
+    "selectImageSpecies": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਤਸਵੀਰ ਅਤੇ ਕਿਸਮ ਚੁਣੋ",
+    "failedToCreate": "ਪੋਸਟ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ",
+    "fileTooLarge": "ਫਾਈਲ ਬਹੁਤ ਵੱਡੀ ਹੈ",
+    "fileTooLargeDesc": "ਕਿਰਪਾ ਕਰਕੇ 10MB ਤੋਂ ਘੱਟ ਫਾਈਲ ਚੁਣੋ",
+    "weight": "ਭਾਰ",
+    "healthScore": "ਸਿਹਤ ਸਕੋਰ",
+    "offline": "ਆਫਲਾਈਨ",
+    "viewAllComments": "ਸਾਰੀਆਂ {{count}} ਟਿੱਪਣੀਆਂ ਦੇਖੋ",
     "defaultCaption": "ਸੁੰਦਰ {{species}} ਫੜੀ!"
   }
 }

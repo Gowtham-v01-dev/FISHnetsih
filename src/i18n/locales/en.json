@@ -127,13 +127,29 @@
     "close": "Close"
   },
   "map": {
-    "title": "Map",
+    "title": "World's View",
     "search": "Search location...",
     "myCatches": "My Catches",
     "viewOnMap": "View on Map",
     "location": "Location",
     "noLocation": "No location data",
-    "back": "Back"
+    "back": "Back",
+    "tabs": {
+      "map": "Map",
+      "news": "News",
+      "weather": "Weather"
+    },
+    "news": {
+      "title": "Fisherman News",
+      "loading": "Loading news...",
+      "noNews": "No news available",
+      "readMore": "Read More",
+      "source": "Source"
+    },
+    "weather": {
+      "title": "Weather Forecast",
+      "loading": "Loading weather..."
+    }
   },
   "communityChat": {
     "title": "FishermanIndia",
@@ -237,7 +253,8 @@
     "yes": "Yes",
     "no": "No",
     "ok": "OK",
-    "create": "New Post"
+    "create": "New Post",
+    "share": "Share"
   },
   "chat": {
     "typeMessage": "Type a message...",

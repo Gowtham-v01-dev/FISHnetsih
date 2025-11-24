@@ -39,6 +39,10 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
+localPort = 35793
+externalPort = 3003
+
+[[ports]]
 localPort = 39717
 externalPort = 3001
 
@@ -46,6 +50,7 @@ externalPort = 3001
 localPort = 44201
 externalPort = 3000
 
-[[ports]]
-localPort = 45489
-externalPort = 3002
+[userenv]
+
+[userenv.shared]
+VITE_NEWS_API_KEY = "79c1cd2c2d02ead2b907c205c1f36626"

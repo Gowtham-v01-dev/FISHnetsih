@@ -1,7 +1,9 @@
-import { Home, Camera, Map, History, User } from 'lucide-react';
+import { Home, Camera, Globe, History, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
+import { useState } from 'react';
+import { WorldsViewModal } from '@/components/map/WorldsViewModal';
 
 interface BottomNavigationProps {
   className?: string;
@@ -11,11 +13,12 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
   const { t } = useTranslation();
   const location = useLocation();
   const currentPath = location.pathname;
+  const [showWorldsView, setShowWorldsView] = useState(false);
 
   const navItems = [
     { id: 'feed', path: '/', icon: Home, label: t('feed.title') },
     { id: 'analyze', path: '/analyze', icon: Camera, label: t('analyze.title') },
-    { id: 'map', path: '/map', icon: Map, label: t('map.title') },
+    { id: 'worldsview', path: '', icon: Globe, label: t('map.title'), isModal: true },
     { id: 'history', path: '/history', icon: History, label: t('history.title') },
     { id: 'profile', path: '/profile', icon: User, label: t('profile.title') },
   ];
@@ -28,8 +31,31 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
       className
     )}>
       <div className="flex justify-around items-center max-w-md mx-auto">
-        {navItems.map(({ id, path, icon: Icon, label }) => {
-          const isActive = currentPath === path;
+        {navItems.map(({ id, path, icon: Icon, label, isModal }) => {
+          const isActive = currentPath === path && !isModal;
+          
+          if (isModal) {
+            return (
+              <button
+                key={id}
+                onClick={() => setShowWorldsView(true)}
+                className={cn(
+                  "flex flex-col items-center gap-1 p-3 rounded-xl transition-all duration-200",
+                  "min-w-[60px] touch-manipulation active:scale-95",
+                  "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                )}
+                aria-label={label}
+              >
+                <Icon 
+                  size={24} 
+                  className="transition-all duration-200"
+                />
+                <span className="text-xs font-medium transition-all text-muted-foreground">
+                  {label}
+                </span>
+              </button>
+            );
+          }
           
           return (
             <Link
@@ -61,6 +87,7 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
           );
         })}
       </div>
+      <WorldsViewModal open={showWorldsView} onOpenChange={setShowWorldsView} />
     </nav>
   );
 };
