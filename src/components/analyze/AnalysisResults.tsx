@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, MapPin, Calendar, Camera, Share, Download, Award, Target, Heart, Zap, Star, TrendingUp, Eye, EyeOff, Ruler } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { translateSpecies } from "@/utils/translateSpecies";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -130,7 +131,7 @@ export const AnalysisResults = ({
               </Badge>
             </div>
             <div className="text-3xl font-bold mt-2">
-              {result.species}
+              {translateSpecies(result.species, t)}
             </div>
           </div>
         </CardContent>

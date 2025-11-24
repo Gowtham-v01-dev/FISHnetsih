@@ -10,6 +10,7 @@ import { SocialPost } from '@/services/social';
 import { formatDistanceToNow, type Locale } from 'date-fns';
 import { enUS, hi, ta, te, kn, gu, bn } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
+import { translateSpecies } from '@/utils/translateSpecies';
 
 const localeMap: Record<string, Locale> = {
   en: enUS,
@@ -120,7 +121,7 @@ export const PostCard = ({
         <div className="absolute top-4 left-4 right-4">
           <Badge className="bg-black/70 text-white backdrop-blur-sm border-white/20">
             <Fish className="h-3 w-3 mr-1" />
-            {post.species}
+            {translateSpecies(post.species, t)}
           </Badge>
         </div>
 

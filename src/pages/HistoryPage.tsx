@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
+import { TFunction } from "i18next";
 import { loadLocalCatches } from "@/utils/localCatches";
+import { translateSpecies } from "@/utils/translateSpecies";
 import { History, Filter, Zap, X, Droplet, BarChart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -123,7 +125,7 @@ const HistoryList = ({
 }: {
   onCatchSelect: (c: FishCatch) => void;
   items: FishCatch[];
-  t: (key: string, options?: any) => string;
+  t: TFunction;
 }) => (
   <motion.div
     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -149,7 +151,7 @@ const HistoryList = ({
         />
         <div className="p-4">
           <p className="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
-            {c.species}
+            {translateSpecies(c.species, t)}
           </p>
           <p className="text-sm text-gray-400">
             {new Date(c.timestamp).toLocaleDateString()}
@@ -170,11 +172,11 @@ const HistoryList = ({
   </motion.div>
 );
 
-const AnalysisResults = ({ result, t }: { result: FishCatch; t: (key: string, options?: any) => string }) => (
+const AnalysisResults = ({ result, t }: { result: FishCatch; t: TFunction }) => (
   <div className="text-gray-300 text-sm">
     {t('history.analysisDetails', { 
-      species: result.species,
-      defaultValue: `Detailed analysis results for ${result.species} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes.`
+      species: translateSpecies(result.species, t),
+      defaultValue: `Detailed analysis results for ${translateSpecies(result.species, t)} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes.`
     })}
   </div>
 );
