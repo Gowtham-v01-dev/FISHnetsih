@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { MapPin, Newspaper, Cloud } from 'lucide-react';
 import MapPage from '@/pages/MapPage';
 import { NewsModule } from './NewsModule';
@@ -14,7 +13,6 @@ interface WorldsViewModalProps {
 
 export const WorldsViewModal = ({ open, onOpenChange }: WorldsViewModalProps) => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('map');
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -23,38 +21,48 @@ export const WorldsViewModal = ({ open, onOpenChange }: WorldsViewModalProps) =>
           <DialogTitle className="text-2xl font-bold">{t('map.title')}</DialogTitle>
         </DialogHeader>
         
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col h-full">
-          <TabsList className="mx-6 grid w-full grid-cols-3">
-            <TabsTrigger value="map" className="flex items-center gap-2">
-              <MapPin size={18} />
-              <span>{t('map.tabs.map')}</span>
-            </TabsTrigger>
-            <TabsTrigger value="news" className="flex items-center gap-2">
-              <Newspaper size={18} />
-              <span>{t('map.tabs.news')}</span>
-            </TabsTrigger>
-            <TabsTrigger value="weather" className="flex items-center gap-2">
-              <Cloud size={18} />
-              <span>{t('map.tabs.weather')}</span>
-            </TabsTrigger>
-          </TabsList>
-
-          <div className="flex-1 overflow-hidden">
-            <TabsContent value="map" className="h-full mt-0 data-[state=active]:flex">
-              <div className="w-full h-full">
+        <ScrollArea className="flex-1 h-full">
+          <div className="flex flex-col">
+            {/* Map Section */}
+            <div className="border-b">
+              <div className="px-6 py-4 bg-muted/30">
+                <h3 className="flex items-center gap-2 text-lg font-semibold">
+                  <MapPin size={20} className="text-primary" />
+                  {t('map.tabs.map')}
+                </h3>
+              </div>
+              <div className="h-[500px]">
                 <MapPage />
               </div>
-            </TabsContent>
+            </div>
 
-            <TabsContent value="news" className="h-full mt-0 data-[state=active]:flex">
-              <NewsModule />
-            </TabsContent>
+            {/* News Section */}
+            <div className="border-b">
+              <div className="px-6 py-4 bg-muted/30">
+                <h3 className="flex items-center gap-2 text-lg font-semibold">
+                  <Newspaper size={20} className="text-primary" />
+                  {t('map.tabs.news')}
+                </h3>
+              </div>
+              <div className="h-[500px]">
+                <NewsModule />
+              </div>
+            </div>
 
-            <TabsContent value="weather" className="h-full mt-0 data-[state=active]:flex">
-              <WeatherModule />
-            </TabsContent>
+            {/* Weather Section */}
+            <div>
+              <div className="px-6 py-4 bg-muted/30">
+                <h3 className="flex items-center gap-2 text-lg font-semibold">
+                  <Cloud size={20} className="text-primary" />
+                  {t('map.tabs.weather')}
+                </h3>
+              </div>
+              <div className="h-[500px]">
+                <WeatherModule />
+              </div>
+            </div>
           </div>
-        </Tabs>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
