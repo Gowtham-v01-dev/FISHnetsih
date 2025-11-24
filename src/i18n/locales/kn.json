@@ -105,7 +105,26 @@
     "couldNotSave": "ಮೀನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.",
     "analysisResultsTitle": "ವಿಶ್ಲೇಷಣೆ ಫಲಿತಾಂಶಗಳು",
     "back": "ಹಿಂದೆ",
-    "calibrateSize": "ಗಾತ್ರವನ್ನು ಮಾಪನಾಂಕ ಮಾಡಿ"
+    "calibrateSize": "ಗಾತ್ರವನ್ನು ಮಾಪನಾಂಕ ಮಾಡಿ",
+    "speciesIdentification": "ಜಾತಿ ಗುರುತಿಸುವಿಕೆ",
+    "identifiedSpecies": "ಗುರುತಿಸಲಾದ ಜಾತಿ",
+    "count": "ಎಣಿಕೆ",
+    "aiAnalysisMetrics": "AI ವಿಶ್ಲೇಷಣೆ ಮಾಪನಗಳು",
+    "aiConfidenceLabel": "AI ವಿಶ್ವಾಸ",
+    "healthFreshness": "ಆರೋಗ್ಯ/ತಾಜಾತನ",
+    "estWeight": "ಅಂದಾಜು ತೂಕ",
+    "basedOnSpeciesData": "ಜಾತಿ ಡೇಟಾದ ಆಧಾರದ ಮೇಲೆ",
+    "qualityScore": "ಗುಣಮಟ್ಟ ಅಂಕ",
+    "combinedMetric": "ಸಂಯೋಜಿತ ಮಾಪನ",
+    "measuredLength": "ಅಳೆಯಲಾದ ಉದ್ದ",
+    "catchTime": "ಹಿಡಿದ ಸಮಯ",
+    "gpsLocation": "GPS ಸ್ಥಳ",
+    "retakePhoto": "ಮತ್ತೆ ಫೋಟೋ ತೆಗೆಯಿರಿ",
+    "saveToHistory": "ಇತಿಹಾಸಕ್ಕೆ ಉಳಿಸಿ",
+    "saving": "ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+    "shareCatch": "ಮೀನು ಹಂಚಿಕೊಳ್ಳಿ",
+    "exportPDF": "PDF ರಫ್ತು",
+    "close": "ಮುಚ್ಚಿ"
   },
   "map": {
     "title": "ನಕ್ಷೆ",
@@ -142,10 +161,10 @@
     "length": "ಉದ್ದ",
     "date": "ದಿನಾಂಕ",
     "viewDetails": "ವಿವರಗಳನ್ನು ನೋಡಿ",
-    "subtitle": "Your personal fishing log",
-    "healthScore": "Health Score",
-    "recentTrends": "Recent Trends",
-    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
+    "subtitle": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮೀನುಗಾರಿಕೆ ದಾಖಲೆ",
+    "healthScore": "ಆರೋಗ್ಯ ಅಂಕ",
+    "recentTrends": "ಇತ್ತೀಚಿನ ಪ್ರವೃತ್ತಿಗಳು",
+    "analysisDetails": "{{species}} ಗಾಗಿ ವಿವರವಾದ ವಿಶ್ಲೇಷಣೆ ಫಲಿತಾಂಶಗಳನ್ನು ಇಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ, ನಿಯಂತ್ರಕ ಮತ್ತು ವೈಯಕ್ತಿಕ ಟ್ರ್ಯಾಕಿಂಗ್ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಕ್ಯಾಚ್ ಡೇಟಾ ಮತ್ತು ಐತಿಹಾಸಿಕ ಪ್ರವೃತ್ತಿಗಳ ಬಗ್ಗೆ ಆಳವಾದ ಒಳನೋಟಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ"
   },
   "profile": {
     "title": "ಪ್ರೊಫೈಲ್",
@@ -160,10 +179,10 @@
     "catches": "ಮೀನುಗಳು",
     "followers": "ಅನುಯಾಯಿಗಳು",
     "following": "ಅನುಸರಿಸುತ್ತಿದ್ದಾರೆ",
-    "posts": "Posts",
-    "likes": "Likes",
-    "myPosts": "My Posts",
-    "shareFirstCatch": "Share your first catch!"
+    "posts": "ಪೋಸ್ಟ್‌ಗಳು",
+    "likes": "ಇಷ್ಟಗಳು",
+    "myPosts": "ನನ್ನ ಪೋಸ್ಟ್‌ಗಳು",
+    "shareFirstCatch": "ನಿಮ್ಮ ಮೊದಲ ಮೀನು ಹಂಚಿಕೊಳ್ಳಿ!"
   },
   "settings": {
     "title": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",

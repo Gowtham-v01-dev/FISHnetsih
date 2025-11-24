@@ -105,7 +105,26 @@
     "couldNotSave": "చేపను సేవ్ చేయలేకపోయింది.",
     "analysisResultsTitle": "విశ్లేషణ ఫలితాలు",
     "back": "వెనుకకు",
-    "calibrateSize": "పరిమాణాన్ని క్యాలిబ్రేట్ చేయండి"
+    "calibrateSize": "పరిమాణాన్ని క్యాలిబ్రేట్ చేయండి",
+    "speciesIdentification": "జాతుల గుర్తింపు",
+    "identifiedSpecies": "గుర్తించబడిన జాతి",
+    "count": "గణన",
+    "aiAnalysisMetrics": "AI విశ్లేషణ కొలమానాలు",
+    "aiConfidenceLabel": "AI విశ్వాసం",
+    "healthFreshness": "ఆరోగ్యం/తాజాదనం",
+    "estWeight": "అంచనా బరువు",
+    "basedOnSpeciesData": "జాతుల డేటా ఆధారంగా",
+    "qualityScore": "నాణ్యత స్కోర్",
+    "combinedMetric": "సంయుక్త కొలమానం",
+    "measuredLength": "కొలిచిన పొడవు",
+    "catchTime": "పట్టుకున్న సమయం",
+    "gpsLocation": "GPS స్థానం",
+    "retakePhoto": "మళ్లీ ఫోటో తీయండి",
+    "saveToHistory": "చరిత్రలో సేవ్ చేయండి",
+    "saving": "సేవ్ చేస్తోంది...",
+    "shareCatch": "చేపను షేర్ చేయండి",
+    "exportPDF": "PDF ఎగుమతి",
+    "close": "మూసివేయండి"
   },
   "map": {
     "title": "మ్యాప్",
@@ -142,10 +161,10 @@
     "length": "పొడవు",
     "date": "తేదీ",
     "viewDetails": "వివరాలను చూడండి",
-    "subtitle": "Your personal fishing log",
-    "healthScore": "Health Score",
-    "recentTrends": "Recent Trends",
-    "analysisDetails": "Detailed analysis results for {{species}} would be displayed here, providing deeper insights into the catch data and historical trends for regulatory and personal tracking purposes."
+    "subtitle": "మీ వ్యక్తిగత ఫిషింగ్ లాగ్",
+    "healthScore": "ఆరోగ్య స్కోర్",
+    "recentTrends": "ఇటీవలి ట్రెండ్స్",
+    "analysisDetails": "{{species}} కోసం వివరణాత్మక విశ్లేషణ ఫలితాలు ఇక్కడ ప్రదర్శించబడతాయి, నియంత్రణ మరియు వ్యక్తిగత ట్రాకింగ్ ప్రయోజనాల కోసం క్యాచ్ డేటా మరియు చారిత్రక ట్రెండ్స్ గురించి లోతైన అంతర్దృష్టులను అందిస్తుంది"
   },
   "profile": {
     "title": "ప్రొఫైల్",
@@ -160,10 +179,10 @@
     "catches": "చేపలు",
     "followers": "అనుచరులు",
     "following": "అనుసరిస్తోంది",
-    "posts": "Posts",
-    "likes": "Likes",
-    "myPosts": "My Posts",
-    "shareFirstCatch": "Share your first catch!"
+    "posts": "పోస్ట్‌లు",
+    "likes": "ఇష్టాలు",
+    "myPosts": "నా పోస్ట్‌లు",
+    "shareFirstCatch": "మీ మొదటి చేపను షేర్ చేయండి!"
   },
   "settings": {
     "title": "సెట్టింగ్‌లు",
