@@ -90,6 +90,18 @@ src/
 
 ## Recent Changes
 
+### World's View Modal Redesign & Translation Fixes (2025-11-24)
+1. **World's View Modal Vertical Layout**: Changed from tabbed interface to vertical scrollable layout
+   - Replaced Tabs component with ScrollArea for better content organization
+   - Sections now display vertically in order: Map → News → Weather
+   - Each section has a clear header with icon and title
+   - Fixed height sections (500px each) for consistent viewing experience
+2. **Translation Fixes**: 
+   - Fixed Telugu (te) translation for "New Post" button: changed "New Post" to "కొత్త పోస్ట్"
+   - Fixed Kannada (kn) translation for "New Post" button: changed "New Post" to "ಹೊಸ ಪೋಸ್ಟ್"
+   - All 12 languages now have complete translations for the "New Post" button (common.create)
+3. **Note**: "Direct Chats" translation was already implemented correctly in all languages
+
 ### Complete i18n Implementation for All Components (2025-11-20)
 1. **Updated Vite Configuration**: Changed allowed host to match current Replit deployment URL
 2. **AnalyzePage Full Internationalization**: Replaced all hardcoded English text with i18n translation keys including:
