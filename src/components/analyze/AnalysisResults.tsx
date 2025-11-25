@@ -25,7 +25,7 @@ export const AnalysisResults = ({
   result,
   imageData,
   location,
-  measuredLength = 1.4,
+  measuredLength,
   onSave,
   onRetake,
   className
@@ -80,11 +80,12 @@ export const AnalysisResults = ({
   };
 
   const shareResults = async () => {
+    const translatedSpecies = translateSpecies(result.species, t);
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `Fish Net Analysis: ${result.species}`,
-          text: `I identified a ${result.species} with ${result.confidence.toFixed(1)}% confidence using Fish Net AI!`,
+          title: t('analyze.shareTitle', { species: translatedSpecies }),
+          text: t('analyze.shareText', { species: translatedSpecies, confidence: result.confidence.toFixed(1) }),
           url: window.location.href,
         });
       } catch (error) {
@@ -103,7 +104,7 @@ export const AnalysisResults = ({
         <div className="relative group">
           <img
             src={imageData}
-            alt="Analyzed fish"
+            alt={t('analyze.analyzedFishAlt')}
             className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
@@ -237,18 +238,20 @@ export const AnalysisResults = ({
       <Card className="shadow-xl border-0 bg-gradient-card">
         <CardContent className="p-4">
           <div className="space-y-3">
-            {/* Measured Length Display */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="p-2 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg shrink-0">
-                <Ruler className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.measuredLength')}</div>
-                <div className="text-sm text-muted-foreground font-mono">
-                  1.4 m
+            {/* Measured Length Display - only show if provided */}
+            {measuredLength && (
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="p-2 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg shrink-0">
+                  <Ruler className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.measuredLength')}</div>
+                  <div className="text-sm text-muted-foreground font-mono">
+                    {typeof measuredLength === 'number' ? `${measuredLength} m` : measuredLength}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shrink-0">
                 <Calendar className="w-4 h-4 text-white" />
@@ -271,7 +274,7 @@ export const AnalysisResults = ({
                     type="button"
                     className="text-sm text-muted-foreground font-mono underline hover:text-primary focus:outline-none break-all"
                     onClick={() => setShowMapPreview(true)}
-                    title="Preview location"
+                    title={t('analyze.previewLocation')}
                   >
                     {location.latitude.toFixed(6)}, {location.longitude.toFixed(6)}
                   </button>
@@ -289,7 +292,7 @@ export const AnalysisResults = ({
             >
               ×
             </button>
-            <div className="mb-2 font-semibold text-center">Chennai Beach Preview</div>
+            <div className="mb-2 font-semibold text-center">{t('analyze.mapPreviewTitle')}</div>
             <div className="embed-map-responsive">
               <div className="embed-map-container">
                 <iframe className="embed-map-frame" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} src="https://maps.google.com/maps?width=600&height=400&hl=en&q=marina%20beach%20with%20rive&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
@@ -297,7 +300,7 @@ export const AnalysisResults = ({
               </div>
               <style>{`.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}`}</style>
             </div>
-            <div className="text-xs text-muted-foreground text-center mt-2">Marina Beach with River</div>
+            <div className="text-xs text-muted-foreground text-center mt-2">{t('analyze.mapLocationLabel')}</div>
           </div>
         </div>
       )}

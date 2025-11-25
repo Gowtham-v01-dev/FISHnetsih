@@ -125,7 +125,11 @@
     "saving": "ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
     "shareCatch": "ಮೀನು ಹಂಚಿಕೊಳ್ಳಿ",
     "exportPDF": "PDF ರಫ್ತು",
-    "close": "ಮುಚ್ಚಿ"
+    "close": "ಮುಚ್ಚಿ",
+    "mapPreviewTitle": "ಚೆನ್ನೈ ಬೀಚ್ ಪೂರ್ವವೀಕ್ಷಣೆ",
+    "mapLocationLabel": "ಮರೀನಾ ಬೀಚ್ ನದಿಯೊಂದಿಗೆ",
+    "shareTitle": "ಫಿಶ್ ನೆಟ್ ವಿಶ್ಲೇಷಣೆ: {{species}}",
+    "shareText": "ಫಿಶ್ ನೆಟ್ AI ಬಳಸಿ {{species}} ಅನ್ನು {{confidence}}% ವಿಶ್ವಾಸದೊಂದಿಗೆ ಗುರುತಿಸಿದ್ದೇನೆ!"
   },
   "map": {
     "title": "ನಕ್ಷೆ",

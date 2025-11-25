@@ -125,7 +125,11 @@
     "saving": "जतन करत आहे...",
     "shareCatch": "मासा शेअर करा",
     "exportPDF": "PDF निर्यात करा",
-    "close": "बंद करा"
+    "close": "बंद करा",
+    "mapPreviewTitle": "चेन्नई बीच पूर्वावलोकन",
+    "mapLocationLabel": "मरीना बीच नदीसह",
+    "shareTitle": "फिश नेट विश्लेषण: {{species}}",
+    "shareText": "फिश नेट AI वापरून {{species}} {{confidence}}% विश्वासासह ओळखले!"
   },
   "map": {
     "title": "नकाशा",

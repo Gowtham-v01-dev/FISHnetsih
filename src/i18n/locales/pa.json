@@ -125,7 +125,11 @@
     "saving": "ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
     "shareCatch": "ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ",
     "exportPDF": "PDF ਨਿਰਯਾਤ ਕਰੋ",
-    "close": "ਬੰਦ ਕਰੋ"
+    "close": "ਬੰਦ ਕਰੋ",
+    "mapPreviewTitle": "ਚੇਨਾਈ ਬੀਚ ਪੂਰਵਦਰਸ਼ਨ",
+    "mapLocationLabel": "ਮਰੀਨਾ ਬੀਚ ਨਦੀ ਨਾਲ",
+    "shareTitle": "ਫਿਸ਼ ਨੈੱਟ ਵਿਸ਼ਲੇਸ਼ਣ: {{species}}",
+    "shareText": "ਫਿਸ਼ ਨੈੱਟ AI ਵਰਤਕੇ {{species}} ਨੂੰ {{confidence}}% ਵਿਸ਼ਵਾਸ ਨਾਲ ਪਛਾਣਿਆ!"
   },
   "map": {
     "title": "ਸੰਸਾਰ ਦਾ ਦ੍ਰਿਸ਼",

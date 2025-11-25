@@ -125,7 +125,13 @@
     "saving": "Saving...",
     "shareCatch": "Share Catch",
     "exportPDF": "Export PDF",
-    "close": "Close"
+    "close": "Close",
+    "mapPreviewTitle": "Chennai Beach Preview",
+    "mapLocationLabel": "Marina Beach with River",
+    "shareTitle": "Fish Net Analysis: {{species}}",
+    "shareText": "I identified a {{species}} with {{confidence}}% confidence using Fish Net AI!",
+    "analyzedFishAlt": "Analyzed fish image",
+    "previewLocation": "Preview location on map"
   },
   "map": {
     "title": "World's View",

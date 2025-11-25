@@ -125,7 +125,11 @@
     "saving": "சேமிக்கிறது...",
     "shareCatch": "பிடியைப் பகிர்",
     "exportPDF": "PDF ஏற்றுமதி",
-    "close": "மூடு"
+    "close": "மூடு",
+    "mapPreviewTitle": "சென்னை கடற்கரை முன்னோட்டம்",
+    "mapLocationLabel": "மெரினா கடற்கரை நதியுடன்",
+    "shareTitle": "ஃபிஷ் நெட் பகுப்பாய்வு: {{species}}",
+    "shareText": "ஃபிஷ் நெட் AI யைப் பயன்படுத்தி {{species}} ஐ {{confidence}}% நம்பிக்கையுடன் அடையாளம் கண்டுள்ளேன்!"
   },
   "map": {
     "title": "வரைபடம்",

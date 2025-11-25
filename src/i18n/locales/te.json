@@ -125,7 +125,11 @@
     "saving": "సేవ్ చేస్తోంది...",
     "shareCatch": "చేపను షేర్ చేయండి",
     "exportPDF": "PDF ఎగుమతి",
-    "close": "మూసివేయండి"
+    "close": "మూసివేయండి",
+    "mapPreviewTitle": "చెన్నై బీచ్ ప్రివ్యూ",
+    "mapLocationLabel": "మెరీనా బీచ్ నదితో",
+    "shareTitle": "ఫిష్ నెట్ విశ్లేషణ: {{species}}",
+    "shareText": "ఫిష్ నెట్ AI ఉపయోగించి {{species}}ను {{confidence}}% విశ్వాసంతో గుర్తించాను!"
   },
   "map": {
     "title": "మ్యాప్",

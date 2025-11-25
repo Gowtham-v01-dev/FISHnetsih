@@ -125,7 +125,11 @@
     "saving": "सहेज रहे हैं...",
     "shareCatch": "पकड़ साझा करें",
     "exportPDF": "PDF निर्यात करें",
-    "close": "बंद करें"
+    "close": "बंद करें",
+    "mapPreviewTitle": "चेन्नई बीच पूर्वावलोकन",
+    "mapLocationLabel": "मरीना बीच नदी के साथ",
+    "shareTitle": "फिश नेट विश्लेषण: {{species}}",
+    "shareText": "मैंने फिश नेट AI का उपयोग करके {{species}} को {{confidence}}% विश्वास के साथ पहचाना!"
   },
   "map": {
     "title": "मैप",

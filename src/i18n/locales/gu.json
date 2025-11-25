@@ -125,7 +125,11 @@
     "saving": "સાચવી રહ્યા છીએ...",
     "shareCatch": "પકડ શેર કરો",
     "exportPDF": "PDF નિકાસ કરો",
-    "close": "બંધ કરો"
+    "close": "બંધ કરો",
+    "mapPreviewTitle": "ચેન્નાઈ બીચ પૂર્વાવલોકન",
+    "mapLocationLabel": "મરીના બીચ નદી સાથે",
+    "shareTitle": "ફિશ નેટ વિશ્લેષણ: {{species}}",
+    "shareText": "ફિશ નેટ AI નો ઉપયોગ કરીને {{species}} ને {{confidence}}% વિશ્વાસ સાથે ઓળખ્યું!"
   },
   "map": {
     "title": "નકશો",

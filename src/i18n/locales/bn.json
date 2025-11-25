@@ -125,7 +125,11 @@
     "saving": "সংরক্ষণ করা হচ্ছে...",
     "shareCatch": "মাছ শেয়ার করুন",
     "exportPDF": "PDF রপ্তানি করুন",
-    "close": "বন্ধ করুন"
+    "close": "বন্ধ করুন",
+    "mapPreviewTitle": "চেন্নাই বিচ প্রিভিউ",
+    "mapLocationLabel": "মেরিনা বিচ নদীর সাথে",
+    "shareTitle": "ফিশ নেট বিশ্লেষণ: {{species}}",
+    "shareText": "ফিশ নেট AI ব্যবহার করে {{species}} {{confidence}}% আত্মবিশ্বাসের সাথে সনাক্ত করেছি!"
   },
   "map": {
     "title": "বিশ্বের দৃশ্য",
