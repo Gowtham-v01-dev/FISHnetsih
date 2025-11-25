@@ -3,7 +3,6 @@ import { Send, Bot, Loader2, AlertCircle } from 'lucide-react';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useWebLLM } from '@/hooks/useWebLLM';
 import { authService } from '@/services/auth';
@@ -18,30 +17,77 @@ interface Message {
   isStreaming?: boolean;
 }
 
+const STORAGE_KEY = 'ai_chat_history';
+
+const loadChatHistory = (): Message[] => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return parsed.map((msg: any) => ({
+        ...msg,
+        timestamp: new Date(msg.timestamp),
+      }));
+    }
+  } catch (err) {
+    console.error('Failed to load chat history:', err);
+  }
+  return [];
+};
+
+const saveChatHistory = (messages: Message[]) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+  } catch (err) {
+    console.error('Failed to save chat history:', err);
+  }
+};
+
 export const AIChatInterface = () => {
-  const { engine, loading, progress, error, initialized, sendMessage } = useWebLLM();
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { engine, loading, progress, error, initialized, sendMessage, restoreConversation } = useWebLLM();
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const history = loadChatHistory();
+    if (history.length > 0) {
+      return history;
+    }
+    return [
+      {
+        id: 'welcome',
+        role: 'assistant',
+        content: 'Hello! I\'m your AI fishing assistant. I can help you with fishing tips, species information, techniques, and answer any questions you have about fishing. What would you like to know?',
+        timestamp: new Date(),
+      },
+    ];
+  });
   const [newMessage, setNewMessage] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [currentUser] = useState(authService.getState().user);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const historyRestored = useRef(false);
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
   useEffect(() => {
-    if (initialized && messages.length === 0) {
-      setMessages([
-        {
-          id: 'welcome',
-          role: 'assistant',
-          content: 'Hello! I\'m your AI fishing assistant. I can help you with fishing tips, species information, techniques, and answer any questions you have about fishing. What would you like to know?',
-          timestamp: new Date(),
-        },
-      ]);
+    saveChatHistory(messages);
+  }, [messages]);
+
+  useEffect(() => {
+    if (initialized && !historyRestored.current && messages.length > 1) {
+      historyRestored.current = true;
+      const conversationMessages = messages
+        .filter(msg => msg.id !== 'welcome')
+        .map(msg => ({
+          role: msg.role,
+          content: msg.content
+        }));
+      if (conversationMessages.length > 0) {
+        restoreConversation(conversationMessages);
+      }
     }
-  }, [initialized]);
+  }, [initialized, messages, restoreConversation]);
 
   const handleSendMessage = async () => {
     if (!newMessage.trim() || !currentUser || !initialized || isGenerating) return;
@@ -137,24 +183,6 @@ export const AIChatInterface = () => {
     );
   }
 
-  if (loading) {
-    return (
-      <div className="h-[calc(100dvh-180px)] flex flex-col items-center justify-center p-4 bg-background">
-        <div className="text-center max-w-md">
-          <Loader2 className="h-12 w-12 animate-spin mx-auto mb-4 text-primary" />
-          <h3 className="text-lg font-semibold mb-2">Loading AI Model...</h3>
-          <p className="text-sm text-muted-foreground mb-4">{progress}</p>
-          <div className="w-full bg-muted rounded-full h-2">
-            <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: '70%' }}></div>
-          </div>
-          <p className="text-xs text-muted-foreground mt-4">
-            This may take a minute on first load. The model is being downloaded and cached for offline use.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="h-[calc(100dvh-180px)] flex flex-col bg-background">
       <div className="flex items-center gap-3 p-4 border-b border-border bg-card">
@@ -166,61 +194,84 @@ export const AIChatInterface = () => {
         <div className="flex-1">
           <h3 className="font-semibold text-foreground">AI Fishing Assistant</h3>
           <p className="text-xs text-muted-foreground">
-            {initialized ? 'Online • Powered by Llama 3.2' : 'Initializing...'}
+            {loading ? (
+              <span className="flex items-center gap-1">
+                <Loader2 className="h-3 w-3 animate-spin" />
+                Loading model...
+              </span>
+            ) : initialized ? (
+              'Online • Powered by Llama 3.2'
+            ) : (
+              'Initializing...'
+            )}
           </p>
         </div>
       </div>
 
-      <ScrollArea className="flex-1 p-4">
-        <div className="space-y-4">
-          {messages.map((message) => {
-            const isOwn = message.role === 'user';
-            return (
+      {loading && (
+        <div className="px-4 py-2 bg-muted/50 border-b border-border">
+          <p className="text-xs text-muted-foreground">{progress}</p>
+          <div className="w-full bg-muted rounded-full h-1 mt-1">
+            <div className="bg-primary h-1 rounded-full animate-pulse" style={{ width: '70%' }}></div>
+          </div>
+        </div>
+      )}
+
+      <div 
+        ref={scrollAreaRef}
+        className="flex-1 overflow-y-auto p-4 space-y-4"
+        style={{ 
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'rgb(148 163 184) transparent'
+        }}
+      >
+        {messages.map((message) => {
+          const isOwn = message.role === 'user';
+          return (
+            <div
+              key={message.id}
+              className={cn(
+                'flex gap-2',
+                isOwn ? 'justify-end' : 'justify-start'
+              )}
+            >
+              {!isOwn && (
+                <Avatar className="h-8 w-8 bg-gradient-primary flex-shrink-0">
+                  <AvatarFallback className="bg-gradient-primary text-white text-xs">
+                    <Bot size={16} />
+                  </AvatarFallback>
+                </Avatar>
+              )}
               <div
-                key={message.id}
                 className={cn(
-                  'flex gap-2',
-                  isOwn ? 'justify-end' : 'justify-start'
+                  'max-w-[75%] rounded-2xl px-4 py-2',
+                  isOwn
+                    ? 'bg-gradient-primary text-white'
+                    : 'bg-muted text-foreground'
                 )}
               >
-                {!isOwn && (
-                  <Avatar className="h-8 w-8 bg-gradient-primary">
-                    <AvatarFallback className="bg-gradient-primary text-white text-xs">
-                      <Bot size={16} />
-                    </AvatarFallback>
-                  </Avatar>
-                )}
-                <div
-                  className={cn(
-                    'max-w-[75%] rounded-2xl px-4 py-2',
-                    isOwn
-                      ? 'bg-gradient-primary text-white'
-                      : 'bg-muted text-foreground'
+                <p className="text-sm whitespace-pre-wrap break-words">
+                  {message.content}
+                  {message.isStreaming && (
+                    <span className="inline-block w-1 h-4 ml-1 bg-current animate-pulse"></span>
                   )}
-                >
-                  <p className="text-sm whitespace-pre-wrap">
-                    {message.content}
-                    {message.isStreaming && (
-                      <span className="inline-block w-1 h-4 ml-1 bg-current animate-pulse"></span>
+                </p>
+                {!message.isStreaming && (
+                  <p
+                    className={cn(
+                      'text-xs mt-1',
+                      isOwn ? 'text-white/70' : 'text-muted-foreground'
                     )}
+                  >
+                    {formatTime(message.timestamp)}
                   </p>
-                  {!message.isStreaming && (
-                    <p
-                      className={cn(
-                        'text-xs mt-1',
-                        isOwn ? 'text-white/70' : 'text-muted-foreground'
-                      )}
-                    >
-                      {formatTime(message.timestamp)}
-                    </p>
-                  )}
-                </div>
+                )}
               </div>
-            );
-          })}
-          <div ref={messagesEndRef} />
-        </div>
-      </ScrollArea>
+            </div>
+          );
+        })}
+        <div ref={messagesEndRef} />
+      </div>
 
       <div className="p-4 border-t border-border bg-card">
         <div className="flex gap-2">
@@ -228,13 +279,13 @@ export const AIChatInterface = () => {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask me about fishing..."
+            placeholder={loading ? "Loading AI model..." : "Ask me about fishing..."}
             className="flex-1"
-            disabled={!initialized || isGenerating}
+            disabled={loading || isGenerating}
           />
           <Button
             onClick={handleSendMessage}
-            disabled={!newMessage.trim() || !initialized || isGenerating}
+            disabled={!newMessage.trim() || loading || isGenerating}
             className="bg-gradient-primary hover:opacity-90 text-white"
           >
             {isGenerating ? (
@@ -244,6 +295,11 @@ export const AIChatInterface = () => {
             )}
           </Button>
         </div>
+        {!initialized && !error && (
+          <p className="text-xs text-muted-foreground mt-2 text-center">
+            You can view your chat history while the model loads...
+          </p>
+        )}
       </div>
     </div>
   );

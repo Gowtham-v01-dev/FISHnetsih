@@ -9,66 +9,135 @@ export interface UseWebLLMResult {
   initialized: boolean;
   sendMessage: (message: string, onChunk?: (text: string) => void) => Promise<string>;
   resetConversation: () => void;
+  restoreConversation: (messages: Array<{ role: 'user' | 'assistant'; content: string }>) => void;
+}
+
+// Global engine instance shared across all components
+let globalEngine: MLCEngineInterface | null = null;
+let globalInitPromise: Promise<MLCEngineInterface> | null = null;
+let globalInitialized = false;
+let globalError: string | null = null;
+
+// Preload function that can be called from anywhere
+export async function preloadWebLLM(
+  onProgress?: (progress: string) => void
+): Promise<MLCEngineInterface | null> {
+  // Return existing engine if already initialized
+  if (globalEngine && globalInitialized) {
+    return globalEngine;
+  }
+
+  // Return existing promise if initialization is in progress
+  if (globalInitPromise) {
+    return globalInitPromise;
+  }
+
+  // Check WebGPU support
+  if (!(navigator as any).gpu) {
+    globalError = 'WebGPU is not supported in this browser. Please use Chrome, Edge, or another WebGPU-compatible browser.';
+    return null;
+  }
+
+  // Start new initialization
+  globalInitPromise = (async () => {
+    try {
+      const selectedModel = 'Llama-3.2-1B-Instruct-q4f16_1-MLC';
+      
+      const mlcEngine = await CreateMLCEngine(
+        selectedModel,
+        {
+          initProgressCallback: (report: InitProgressReport) => {
+            onProgress?.(report.text);
+          },
+        }
+      );
+
+      globalEngine = mlcEngine;
+      globalInitialized = true;
+      globalError = null;
+      onProgress?.('Model loaded successfully!');
+      
+      return mlcEngine;
+    } catch (err: any) {
+      console.error('Failed to initialize web-llm engine:', err);
+      globalError = err.message || 'Failed to initialize AI model. Please refresh and try again.';
+      globalInitPromise = null;
+      throw err;
+    }
+  })();
+
+  return globalInitPromise;
 }
 
 export function useWebLLM(): UseWebLLMResult {
-  const [engine, setEngine] = useState<MLCEngineInterface | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [engine, setEngine] = useState<MLCEngineInterface | null>(globalEngine);
+  const [loading, setLoading] = useState(!globalInitialized && !globalError);
   const [progress, setProgress] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
-  const [initialized, setInitialized] = useState(false);
+  const [error, setError] = useState<string | null>(globalError);
+  const [initialized, setInitialized] = useState(globalInitialized);
   const conversationHistory = useRef<Array<{ role: 'user' | 'assistant'; content: string }>>([]);
-  const initializationAttempted = useRef(false);
+  const initStarted = useRef(false);
 
   useEffect(() => {
-    if (initializationAttempted.current) return;
-    
-    async function initEngine() {
-      if (!(navigator as any).gpu) {
-        setError('WebGPU is not supported in this browser. Please use Chrome, Edge, or another WebGPU-compatible browser.');
-        setLoading(false);
-        return;
-      }
-
-      initializationAttempted.current = true;
-      setLoading(true);
+    // Use global engine if already available
+    if (globalEngine && globalInitialized) {
+      setEngine(globalEngine);
+      setInitialized(true);
+      setLoading(false);
       setError(null);
-
-      try {
-        const selectedModel = 'Llama-3.2-1B-Instruct-q4f16_1-MLC';
-        
-        const mlcEngine = await CreateMLCEngine(
-          selectedModel,
-          {
-            initProgressCallback: (report: InitProgressReport) => {
-              setProgress(report.text);
-            },
-          }
-        );
-
-        setEngine(mlcEngine);
-        setInitialized(true);
-        setProgress('Model loaded successfully!');
-      } catch (err: any) {
-        console.error('Failed to initialize web-llm engine:', err);
-        setError(err.message || 'Failed to initialize AI model. Please refresh and try again.');
-        initializationAttempted.current = false;
-      } finally {
-        setLoading(false);
-      }
+      return;
     }
 
-    initEngine();
+    // Use global error if available
+    if (globalError) {
+      setError(globalError);
+      setLoading(false);
+      return;
+    }
 
-    return () => {
-      if (engine) {
-        engine.unload().catch(console.error);
-      }
-    };
+    // Start initialization if not started
+    if (!initStarted.current && !globalInitPromise) {
+      initStarted.current = true;
+      setLoading(true);
+      
+      preloadWebLLM((progressText) => {
+        setProgress(progressText);
+      })
+        .then((mlcEngine) => {
+          if (mlcEngine) {
+            setEngine(mlcEngine);
+            setInitialized(true);
+            setError(null);
+          }
+        })
+        .catch((err) => {
+          setError(err.message || 'Failed to initialize AI model');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else if (globalInitPromise) {
+      // Join existing initialization
+      setLoading(true);
+      globalInitPromise
+        .then((mlcEngine) => {
+          setEngine(mlcEngine);
+          setInitialized(true);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message || 'Failed to initialize AI model');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }, []);
 
   const sendMessage = useCallback(async (userMessage: string, onChunk?: (text: string) => void): Promise<string> => {
-    if (!engine || !initialized) {
+    const currentEngine = globalEngine || engine;
+    
+    if (!currentEngine || !globalInitialized) {
       throw new Error('AI model is not ready yet. Please wait for initialization to complete.');
     }
 
@@ -80,7 +149,7 @@ export function useWebLLM(): UseWebLLMResult {
     try {
       if (onChunk) {
         let fullResponse = '';
-        const asyncChunkGenerator = await engine.chat.completions.create({
+        const asyncChunkGenerator = await currentEngine.chat.completions.create({
           messages: conversationHistory.current,
           temperature: 0.7,
           max_tokens: 512,
@@ -102,7 +171,7 @@ export function useWebLLM(): UseWebLLMResult {
 
         return fullResponse;
       } else {
-        const completion = await engine.chat.completions.create({
+        const completion = await currentEngine.chat.completions.create({
           messages: conversationHistory.current,
           temperature: 0.7,
           max_tokens: 512,
@@ -122,10 +191,14 @@ export function useWebLLM(): UseWebLLMResult {
       conversationHistory.current.pop();
       throw new Error('Failed to generate response. Please try again.');
     }
-  }, [engine, initialized]);
+  }, [engine]);
 
   const resetConversation = useCallback(() => {
     conversationHistory.current = [];
+  }, []);
+
+  const restoreConversation = useCallback((messages: Array<{ role: 'user' | 'assistant'; content: string }>) => {
+    conversationHistory.current = messages;
   }, []);
 
   return {
@@ -136,5 +209,6 @@ export function useWebLLM(): UseWebLLMResult {
     initialized,
     sendMessage,
     resetConversation,
+    restoreConversation,
   };
 }

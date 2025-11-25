@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import { seedSampleData } from "@/services/sampleData";
 import { pwaService } from "@/services/pwa";
 import { syncService } from "@/services/sync";
+import { preloadWebLLM } from "@/hooks/useWebLLM";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,15 @@ const App = () => {
         
         // Initialize sync service (already done in constructor)
         console.log('Fish Net app initialized successfully');
+        
+        // Preload AI model in background for instant chat access
+        setTimeout(() => {
+          preloadWebLLM((progress) => {
+            console.log('AI Model preloading:', progress);
+          }).catch((err) => {
+            console.warn('AI model preload failed (will load on demand):', err);
+          });
+        }, 3000); // Start preloading 3 seconds after app init
       } catch (error) {
         console.warn('App initialization warning:', error);
       }
