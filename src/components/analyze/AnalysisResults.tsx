@@ -112,25 +112,25 @@ export const AnalysisResults = ({
       {/* Enhanced Species Card */}
       <Card className="shadow-xl border-0 bg-gradient-card">
         <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-3 text-xl">
-            <div className="p-2 bg-gradient-primary rounded-lg">
-              <Award className="w-5 h-5 text-white" />
+          <CardTitle className="flex items-center gap-2 sm:gap-3 text-base sm:text-xl">
+            <div className="p-2 bg-gradient-primary rounded-lg shrink-0">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            {t('analyze.speciesIdentification')}
+            <span className="break-words whitespace-normal">{t('analyze.speciesIdentification')}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="text-center">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <Badge className="bg-gradient-primary text-white hover:opacity-90">
-                <Star className="w-3 h-3 mr-1" />
-                {t('analyze.identifiedSpecies')}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-2">
+              <Badge className="bg-gradient-primary text-white hover:opacity-90 text-xs sm:text-sm whitespace-normal break-words max-w-full">
+                <Star className="w-3 h-3 mr-1 shrink-0" />
+                <span className="break-words">{t('analyze.identifiedSpecies')}</span>
               </Badge>
-              <Badge variant="outline" className="border-primary/30">
-                {t('analyze.count')}: {result.estimatedCount}
+              <Badge variant="outline" className="border-primary/30 text-xs sm:text-sm whitespace-normal break-words max-w-full">
+                <span className="break-words">{t('analyze.count')}: {result.estimatedCount}</span>
               </Badge>
             </div>
-            <div className="text-3xl font-bold mt-2">
+            <div className="text-2xl sm:text-3xl font-bold mt-2 break-words px-2">
               {translateSpecies(result.species, t)}
             </div>
           </div>
@@ -140,22 +140,22 @@ export const AnalysisResults = ({
       {/* Enhanced Analysis Metrics with Gauges */}
       <Card className="shadow-xl border-0 bg-gradient-card">
         <CardHeader>
-          <CardTitle className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-white" />
+          <CardTitle className="flex items-center gap-2 sm:gap-3 text-base sm:text-xl">
+            <div className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg shrink-0">
+              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
             </div>
-            {t('analyze.aiAnalysisMetrics')}
+            <span className="break-words whitespace-normal">{t('analyze.aiAnalysisMetrics')}</span>
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Confidence with circular gauge */}
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Target className="w-4 h-4 text-primary" />
-                <span className="font-semibold">{t('analyze.aiConfidenceLabel')}</span>
+            <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
+              <div className="flex items-center gap-2 flex-1 min-w-0">
+                <Target className="w-4 h-4 text-primary shrink-0" />
+                <span className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.aiConfidenceLabel')}</span>
               </div>
-              <div className={cn("text-lg font-bold px-3 py-1 rounded-full border", getConfidenceBg(result.confidence))}>
+              <div className={cn("text-sm sm:text-lg font-bold px-2 sm:px-3 py-1 rounded-full border shrink-0", getConfidenceBg(result.confidence))}>
                 <span className={getConfidenceColor(result.confidence)}>
                   {result.confidence.toFixed(1)}%
                 </span>
@@ -178,12 +178,12 @@ export const AnalysisResults = ({
 
           {/* Health Score with enhanced visuals */}
           <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-red-500" />
-                <span className="font-semibold">{t('analyze.healthFreshness')}</span>
+            <div className="flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
+              <div className="flex items-center gap-2 flex-1 min-w-0">
+                <Heart className="w-4 h-4 text-red-500 shrink-0" />
+                <span className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.healthFreshness')}</span>
               </div>
-              <div className="text-lg font-bold">
+              <div className="text-sm sm:text-lg font-bold shrink-0">
                 <span className={getHealthColor(result.healthScore)}>
                   {result.healthScore.toFixed(1)}%
                 </span>
@@ -203,29 +203,29 @@ export const AnalysisResults = ({
           </div>
 
           {/* Weight and Quality in enhanced cards */}
-          <div className="grid grid-cols-2 gap-4 pt-2">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-100">
-              <div className="flex items-center gap-2 mb-2">
-                <Zap className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-800">{t('analyze.estWeight')}</span>
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-2">
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-3 sm:p-4 rounded-xl border border-blue-100">
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-2">
+                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-blue-800 break-words whitespace-normal">{t('analyze.estWeight')}</span>
               </div>
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-xl sm:text-2xl font-bold text-blue-600">
                 {result.estimatedWeight.toFixed(1)} kg
               </div>
-              <div className="text-xs text-blue-500 mt-1">
+              <div className="text-xs text-blue-500 mt-1 break-words whitespace-normal">
                 {t('analyze.basedOnSpeciesData')}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-4 rounded-xl border border-emerald-100">
-              <div className="flex items-center gap-2 mb-2">
-                <Award className="w-4 h-4 text-emerald-600" />
-                <span className="text-sm font-medium text-emerald-800">{t('analyze.qualityScore')}</span>
+            <div className="bg-gradient-to-br from-emerald-50 to-green-50 p-3 sm:p-4 rounded-xl border border-emerald-100">
+              <div className="flex items-center gap-1.5 sm:gap-2 mb-2">
+                <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
+                <span className="text-xs sm:text-sm font-medium text-emerald-800 break-words whitespace-normal">{t('analyze.qualityScore')}</span>
               </div>
-              <div className={cn("text-2xl font-bold", getQualityColor(quality))}>
+              <div className={cn("text-xl sm:text-2xl font-bold", getQualityColor(quality))}>
                 {quality.toFixed(0)}%
               </div>
-              <div className="text-xs text-emerald-500 mt-1">
+              <div className="text-xs text-emerald-500 mt-1 break-words whitespace-normal">
                 {t('analyze.combinedMetric')}
               </div>
             </div>
@@ -238,38 +238,38 @@ export const AnalysisResults = ({
         <CardContent className="p-4">
           <div className="space-y-3">
             {/* Measured Length Display */}
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="p-2 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg shrink-0">
                 <Ruler className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <div className="font-semibold">{t('analyze.measuredLength')}</div>
+              <div className="flex-1 min-w-0">
+                <div className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.measuredLength')}</div>
                 <div className="text-sm text-muted-foreground font-mono">
                   1.4 m
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg shrink-0">
                 <Calendar className="w-4 h-4 text-white" />
               </div>
-              <div>
-                <div className="font-semibold">{t('analyze.catchTime')}</div>
-                <div className="text-sm text-muted-foreground">
+              <div className="flex-1 min-w-0">
+                <div className="font-semibold text-sm sm:text-base break-words whitespace-normal">{t('analyze.catchTime')}</div>
+                <div className="text-sm text-muted-foreground break-words">
                   {new Date().toLocaleString()}
                 </div>
               </div>
             </div>
             {location && (
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg">
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div className="p-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg shrink-0">
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold">{t('analyze.gpsLocation')}:</span>
+                <div className="flex-1 min-w-0">
+                  <span className="font-semibold text-sm sm:text-base break-words whitespace-normal block">{t('analyze.gpsLocation')}:</span>
                   <button
                     type="button"
-                    className="text-sm text-muted-foreground font-mono underline hover:text-primary focus:outline-none"
+                    className="text-sm text-muted-foreground font-mono underline hover:text-primary focus:outline-none break-all"
                     onClick={() => setShowMapPreview(true)}
                     title="Preview location"
                   >
@@ -292,7 +292,7 @@ export const AnalysisResults = ({
             <div className="mb-2 font-semibold text-center">Chennai Beach Preview</div>
             <div className="embed-map-responsive">
               <div className="embed-map-container">
-                <iframe className="embed-map-frame" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=marina%20beach%20with%20rive&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
+                <iframe className="embed-map-frame" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} src="https://maps.google.com/maps?width=600&height=400&hl=en&q=marina%20beach%20with%20rive&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
                 <a href="https://sprunkiretake.net" style={{fontSize:'2px',color:'gray',position:'absolute',bottom:0,left:0,zIndex:1,maxHeight:'1px',overflow:'hidden'}}>sprunki retake</a>
               </div>
               <style>{`.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}`}</style>
@@ -307,53 +307,53 @@ export const AnalysisResults = ({
 
       {/* Enhanced Action Buttons */}
       <div className="space-y-3">
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <Button
             variant="outline"
             onClick={onRetake}
-            className="flex-1 h-12 border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+            className="flex-1 h-11 sm:h-12 border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300 text-xs sm:text-sm whitespace-normal"
           >
-            <Camera className="w-5 h-5 mr-2" />
-            {t('analyze.retakePhoto')}
+            <Camera className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 shrink-0" />
+            <span className="break-words">{t('analyze.retakePhoto')}</span>
           </Button>
           
           <Button
             onClick={handleSave}
             disabled={isSaving}
-            className="flex-1 h-12 bg-gradient-primary hover:opacity-90 shadow-glow text-white font-semibold transition-all duration-300 hover:scale-105"
+            className="flex-1 h-11 sm:h-12 bg-gradient-primary hover:opacity-90 shadow-glow text-white font-semibold transition-all duration-300 hover:scale-105 text-xs sm:text-sm whitespace-normal"
           >
             {isSaving ? (
-              <div className="flex items-center gap-2">
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                {t('analyze.saving')}
+              <div className="flex items-center gap-1 sm:gap-2">
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin shrink-0" />
+                <span className="break-words">{t('analyze.saving')}</span>
               </div>
             ) : (
               <>
-                <Check className="w-5 h-5 mr-2" />
-                {t('analyze.saveToHistory')}
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 shrink-0" />
+                <span className="break-words">{t('analyze.saveToHistory')}</span>
               </>
             )}
           </Button>
         </div>
 
         {/* Secondary Actions */}
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <Button 
             variant="secondary" 
             onClick={shareResults}
-            className="flex-1 h-11 bg-gradient-to-r from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 text-blue-700 border-0"
+            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 text-blue-700 border-0 text-xs sm:text-sm whitespace-normal"
           >
-            <Share className="w-4 h-4 mr-2" />
-            {t('analyze.shareCatch')}
+            <Share className="w-4 h-4 mr-1 sm:mr-2 shrink-0" />
+            <span className="break-words">{t('analyze.shareCatch')}</span>
           </Button>
           
           <Button 
             variant="secondary" 
             onClick={() => setShowPDFGenerator(true)}
-            className="flex-1 h-11 bg-gradient-to-r from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 border-0"
+            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 border-0 text-xs sm:text-sm whitespace-normal"
           >
-            <Download className="w-4 h-4 mr-2" />
-            {t('analyze.exportPDF')}
+            <Download className="w-4 h-4 mr-1 sm:mr-2 shrink-0" />
+            <span className="break-words">{t('analyze.exportPDF')}</span>
           </Button>
         </div>
       </div>
