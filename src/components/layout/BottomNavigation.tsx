@@ -40,17 +40,17 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
                 key={id}
                 onClick={() => setShowWorldsView(true)}
                 className={cn(
-                  "flex flex-col items-center gap-1 p-3 rounded-xl transition-all duration-200",
-                  "min-w-[60px] touch-manipulation active:scale-95",
+                  "flex flex-col items-center gap-1 p-2 rounded-xl transition-all duration-200",
+                  "min-w-[56px] max-w-[72px] touch-manipulation active:scale-95",
                   "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 )}
                 aria-label={label}
               >
                 <Icon 
-                  size={24} 
+                  size={22} 
                   className="transition-all duration-200"
                 />
-                <span className="text-xs font-medium transition-all text-muted-foreground">
+                <span className="text-[10px] leading-tight font-medium transition-all text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                   {label}
                 </span>
               </button>
@@ -62,8 +62,8 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
               key={id}
               to={path}
               className={cn(
-                "flex flex-col items-center gap-1 p-3 rounded-xl transition-all duration-200",
-                "min-w-[60px] touch-manipulation active:scale-95",
+                "flex flex-col items-center gap-1 p-2 rounded-xl transition-all duration-200",
+                "min-w-[56px] max-w-[72px] touch-manipulation active:scale-95",
                 isActive 
                   ? "text-primary bg-primary/10" 
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -71,14 +71,14 @@ export const BottomNavigation = ({ className }: BottomNavigationProps) => {
               aria-label={label}
             >
               <Icon 
-                size={24} 
+                size={22} 
                 className={cn(
                   "transition-all duration-200",
                   isActive && "drop-shadow-[0_0_8px_hsl(var(--primary)_/_0.5)]"
                 )} 
               />
               <span className={cn(
-                "text-xs font-medium transition-all",
+                "text-[10px] leading-tight font-medium transition-all whitespace-nowrap overflow-hidden text-ellipsis max-w-full",
                 isActive ? "text-primary font-semibold" : "text-muted-foreground"
               )}>
                 {label}

@@ -6,7 +6,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { CommunityChat } from './CommunityChat';
 import { ChatInterface } from './ChatInterface';
-import { AIChat } from './AIChat';
+import { AIChatInterface } from './AIChatInterface';
 
 interface MessagesDialogProps {
   children?: React.ReactNode;
@@ -71,7 +71,7 @@ export const MessagesDialog = ({ children }: MessagesDialogProps) => {
             </TabsContent>
 
             <TabsContent value="ai" className="mt-0 flex-1">
-              <AIChat />
+              <AIChatInterface />
             </TabsContent>
           </Tabs>
         </DialogContent>
