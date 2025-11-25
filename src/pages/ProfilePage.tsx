@@ -124,9 +124,9 @@ export default function ProfilePage() {
               <div>
                 <h2 className="text-2xl font-bold text-foreground">{currentUser.name}</h2>
                 <p className="text-muted-foreground">{currentUser.email}</p>
-                {currentUser.bio && (
-                  <p className="text-sm text-foreground mt-2">{currentUser.bio}</p>
-                )}
+                <p className="text-sm text-foreground mt-2">
+                  {currentUser.bioKey ? t(currentUser.bioKey, { email: currentUser.email, name: currentUser.name }) : (currentUser.bio || t('profile.defaultBio', { email: currentUser.email, name: currentUser.name }))}
+                </p>
               </div>
 
               <div className="flex gap-4">

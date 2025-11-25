@@ -34,6 +34,7 @@
     "messages": "संदेश",
     "community": "समुदाय",
     "directChats": "सीधी बातचीत",
+    "aiChat": "AI चैट",
     "noPosts": "कोई पोस्ट कोनी",
     "likeCount": "{{count}} पसंद",
     "likeCount_plural": "{{count}} पसंद",
@@ -179,7 +180,8 @@
     "posts": "पोस्ट",
     "likes": "पसंद",
     "myPosts": "म्हारी पोस्ट",
-    "shareFirstCatch": "आपरी पैली मछली सांझी करो!"
+    "shareFirstCatch": "आपरी पैली मछली सांझी करो!",
+    "defaultBio": "समुद्री उत्साही और मछुआरा। अद्भुत पकड़ साझा करने के लिए Fish Net में शामिल हुए!"
   },
   "settings": {
     "title": "सेटिंग्स",

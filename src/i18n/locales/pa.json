@@ -34,6 +34,7 @@
     "messages": "ਸੰਦੇਸ਼",
     "community": "ਕਮਿਊਨਿਟੀ",
     "directChats": "ਸਿੱਧੀਆਂ ਚੈਟਾਂ",
+    "aiChat": "AI ਚੈਟ",
     "noPosts": "ਕੋਈ ਪੋਸਟ ਨਹੀਂ",
     "likeCount": "{{count}} ਪਸੰਦ",
     "likeCount_plural": "{{count}} ਪਸੰਦਾਂ",
@@ -198,7 +199,8 @@
     "posts": "ਪੋਸਟਾਂ",
     "likes": "ਪਸੰਦਾਂ",
     "myPosts": "ਮੇਰੀਆਂ ਪੋਸਟਾਂ",
-    "shareFirstCatch": "ਆਪਣੀ ਪਹਿਲੀ ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ!"
+    "shareFirstCatch": "ਆਪਣੀ ਪਹਿਲੀ ਮੱਛੀ ਸਾਂਝੀ ਕਰੋ!",
+    "defaultBio": "ਸਮੁੰਦਰੀ ਉਤਸ਼ਾਹੀ ਅਤੇ ਮੱਛੀ ਫੜਨ ਵਾਲਾ। ਸ਼ਾਨਦਾਰ ਫੜਾਂ ਸਾਂਝੀਆਂ ਕਰਨ ਲਈ Fish Net ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਏ!"
   },
   "settings": {
     "title": "ਸੈਟਿੰਗਾਂ",

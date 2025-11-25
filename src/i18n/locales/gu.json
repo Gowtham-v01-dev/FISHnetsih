@@ -34,6 +34,7 @@
     "messages": "સંદેશાઓ",
     "community": "સમુદાય",
     "directChats": "સીધી ચેટ",
+    "aiChat": "AI ચેટ",
     "noPosts": "કોઈ પોસ્ટ નથી",
     "likeCount": "{{count}} લાઇક",
     "likeCount_plural": "{{count}} લાઇક્સ",
@@ -182,7 +183,8 @@
     "posts": "પોસ્ટ્સ",
     "likes": "પસંદ",
     "myPosts": "મારી પોસ્ટ્સ",
-    "shareFirstCatch": "તમારી પ્રથમ માછલી શેર કરો!"
+    "shareFirstCatch": "તમારી પ્રથમ માછલી શેર કરો!",
+    "defaultBio": "સમુદ્રી ઉત્સાહી અને માછીમાર. અદ્ભુત પકડ શેર કરવા માટે Fish Net માં જોડાયા!"
   },
   "settings": {
     "title": "સેટિંગ્સ",

@@ -34,6 +34,7 @@
     "messages": "సందేశాలు",
     "community": "సంఘం",
     "directChats": "ప్రత్యక్ష చాట్‌లు",
+    "aiChat": "AI చాట్",
     "noPosts": "పోస్ట్‌లు లేవు",
     "likeCount": "{{count}} ఇష్టం",
     "likeCount_plural": "{{count}} ఇష్టాలు",
@@ -182,7 +183,8 @@
     "posts": "పోస్ట్‌లు",
     "likes": "ఇష్టాలు",
     "myPosts": "నా పోస్ట్‌లు",
-    "shareFirstCatch": "మీ మొదటి చేపను షేర్ చేయండి!"
+    "shareFirstCatch": "మీ మొదటి చేపను షేర్ చేయండి!",
+    "defaultBio": "సముద్ర ఉత్సాహి మరియు చేపల పట్టేవాడు. అద్భుతమైన చేపలను భాగస్వామ్యం చేయడానికి Fish Net లో చేరారు!"
   },
   "settings": {
     "title": "సెట్టింగ్‌లు",

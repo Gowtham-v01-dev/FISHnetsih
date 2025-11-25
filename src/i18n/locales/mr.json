@@ -34,6 +34,7 @@
     "messages": "संदेश",
     "community": "समुदाय",
     "directChats": "थेट चॅट",
+    "aiChat": "AI चॅट",
     "noPosts": "कोणतीही पोस्ट नाही",
     "likeCount": "{{count}} आवडले",
     "likeCount_plural": "{{count}} आवडले",
@@ -182,7 +183,8 @@
     "posts": "पोस्ट",
     "likes": "आवडले",
     "myPosts": "माझी पोस्ट",
-    "shareFirstCatch": "तुमचा पहिला मासा शेअर करा!"
+    "shareFirstCatch": "तुमचा पहिला मासा शेअर करा!",
+    "defaultBio": "समुद्री उत्साही आणि मच्छिमार। आश्चर्यकारक पकड सामायिक करण्यासाठी Fish Net मध्ये सामील झाले!"
   },
   "settings": {
     "title": "सेटिंग्ज",

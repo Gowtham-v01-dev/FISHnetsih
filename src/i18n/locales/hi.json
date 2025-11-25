@@ -34,6 +34,7 @@
     "messages": "संदेश",
     "community": "समुदाय",
     "directChats": "सीधी बातचीत",
+    "aiChat": "AI चैट",
     "noPosts": "कोई पोस्ट नहीं",
     "likeCount": "{{count}} पसंद",
     "likeCount_plural": "{{count}} पसंद",
@@ -182,7 +183,8 @@
     "posts": "पोस्ट",
     "likes": "पसंद",
     "myPosts": "मेरी पोस्ट",
-    "shareFirstCatch": "अपनी पहली पकड़ साझा करें!"
+    "shareFirstCatch": "अपनी पहली पकड़ साझा करें!",
+    "defaultBio": "समुद्री उत्साही और मछुआरा। अद्भुत पकड़ साझा करने के लिए Fish Net में शामिल हुए!"
   },
   "settings": {
     "title": "सेटिंग्स",

@@ -34,6 +34,7 @@
     "messages": "Messages",
     "community": "Community",
     "directChats": "Direct Chats",
+    "aiChat": "AI Chat",
     "noPosts": "No posts yet",
     "likeCount": "{{count}} like",
     "likeCount_plural": "{{count}} likes",
@@ -198,7 +199,8 @@
     "posts": "Posts",
     "likes": "Likes",
     "myPosts": "My Posts",
-    "shareFirstCatch": "Share your first catch!"
+    "shareFirstCatch": "Share your first catch!",
+    "defaultBio": "Marine enthusiast and angler. Joined Fish Net to share amazing catches!"
   },
   "settings": {
     "title": "Settings",

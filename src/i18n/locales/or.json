@@ -34,6 +34,7 @@
     "messages": "ବାର୍ତ୍ତା",
     "community": "ସମୁଦାୟ",
     "directChats": "ସିଧା ଚାଟ୍",
+    "aiChat": "AI ଚାଟ୍",
     "noPosts": "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ପୋଷ୍ଟ ନାହିଁ",
     "likeCount": "{{count}} ପସନ୍ଦ",
     "likeCount_plural": "{{count}} ପସନ୍ଦ",
@@ -179,7 +180,8 @@
     "posts": "ପୋଷ୍ଟ",
     "likes": "ପସନ୍ଦ",
     "myPosts": "ମୋର ପୋଷ୍ଟଗୁଡିକ",
-    "shareFirstCatch": "ଆପଣଙ୍କର ପ୍ରଥମ ମାଛ ସାଂଝା କରନ୍ତୁ!"
+    "shareFirstCatch": "ଆପଣଙ୍କର ପ୍ରଥମ ମାଛ ସାଂଝା କରନ୍ତୁ!",
+    "defaultBio": "ସମୁଦ୍ର ଉତ୍ସାହୀ ଏବଂ ମତ୍ସ୍ୟଜୀବୀ। ଅଦ୍ଭୁତ ମାଛ ଧରାକୁ ସେୟାର କରିବାକୁ Fish Net ରେ ଯୋଗ ଦେଲେ!"
   },
   "settings": {
     "title": "ସେଟିଂସ୍",

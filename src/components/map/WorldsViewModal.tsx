@@ -88,12 +88,12 @@ export const WorldsViewModal = ({ open, onOpenChange }: WorldsViewModalProps) =>
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[95vw] w-full max-h-[95vh] h-[95vh] p-0 overflow-hidden">
-        <DialogHeader className="px-6 pt-6 pb-4 border-b">
+      <DialogContent className="max-w-[95vw] w-full max-h-[95vh] h-[95vh] p-0 overflow-hidden flex flex-col">
+        <DialogHeader className="px-6 pt-4 pb-3 border-b flex-shrink-0">
           <DialogTitle className="text-2xl font-bold">{t('map.title')}</DialogTitle>
         </DialogHeader>
         
-        <div className="flex h-full overflow-hidden">
+        <div className="flex flex-1 overflow-hidden">
           {/* Navigation List */}
           <div className="w-64 border-r bg-background overflow-y-auto">
             <div role="tablist" aria-label="World's View sections" className="flex flex-col">

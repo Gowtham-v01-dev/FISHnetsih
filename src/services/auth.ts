@@ -7,6 +7,7 @@ export interface User {
   name: string;
   avatar?: string;
   bio?: string;
+  bioKey?: string;
   joinDate: string;
   totalCatches: number;
   favoriteSpecies: string;
@@ -89,7 +90,7 @@ class AuthService {
       id: `user_${Date.now()}`,
       email,
       name,
-      bio: `Marine enthusiast and angler. Joined Fish Net to share amazing catches!`,
+      bioKey: 'profile.defaultBio',
       joinDate: new Date().toISOString(),
       totalCatches: 0,
       favoriteSpecies: 'Unknown',

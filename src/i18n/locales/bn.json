@@ -34,6 +34,7 @@
     "messages": "বার্তা",
     "community": "সম্প্রদায়",
     "directChats": "সরাসরি চ্যাট",
+    "aiChat": "AI চ্যাট",
     "noPosts": "কোনও পোস্ট নেই",
     "likeCount": "{{count}} লাইক",
     "likeCount_plural": "{{count}} লাইক",
@@ -198,7 +199,8 @@
     "posts": "পোস্ট",
     "likes": "লাইক",
     "myPosts": "আমার পোস্ট",
-    "shareFirstCatch": "আপনার প্রথম মাছ শেয়ার করুন!"
+    "shareFirstCatch": "আপনার প্রথম মাছ শেয়ার করুন!",
+    "defaultBio": "সামুদ্রিক উত্সাহী এবং মৎস্যজীবী। আশ্চর্যজনক মাছ ধরা ভাগ করতে Fish Net এ যোগদান করেছেন!"
   },
   "settings": {
     "title": "সেটিংস",

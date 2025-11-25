@@ -34,6 +34,7 @@
     "messages": "ಸಂದೇಶಗಳು",
     "community": "ಸಮುದಾಯ",
     "directChats": "ನೇರ ಚಾಟ್‌ಗಳು",
+    "aiChat": "AI ಚಾಟ್",
     "noPosts": "ಪೋಸ್ಟ್‌ಗಳಿಲ್ಲ",
     "likeCount": "{{count}} ಲೈಕ್",
     "likeCount_plural": "{{count}} ಲೈಕ್‌ಗಳು",
@@ -182,7 +183,8 @@
     "posts": "ಪೋಸ್ಟ್‌ಗಳು",
     "likes": "ಇಷ್ಟಗಳು",
     "myPosts": "ನನ್ನ ಪೋಸ್ಟ್‌ಗಳು",
-    "shareFirstCatch": "ನಿಮ್ಮ ಮೊದಲ ಮೀನು ಹಂಚಿಕೊಳ್ಳಿ!"
+    "shareFirstCatch": "ನಿಮ್ಮ ಮೊದಲ ಮೀನು ಹಂಚಿಕೊಳ್ಳಿ!",
+    "defaultBio": "ಸಮುದ್ರ ಉತ್ಸಾಹಿ ಮತ್ತು ಮೀನುಗಾರ. ಅದ್ಭುತ ಮೀನುಗಾರಿಕೆಯನ್ನು ಹಂಚಿಕೊಳ್ಳಲು Fish Net ಸೇರಿದರು!"
   },
   "settings": {
     "title": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು",

@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "web", "bun"]
 [agent]
 expertMode = true
 
@@ -43,12 +43,12 @@ localPort = 39717
 externalPort = 3001
 
 [[ports]]
-localPort = 41077
-externalPort = 3003
-
-[[ports]]
 localPort = 44201
 externalPort = 3000
+
+[[ports]]
+localPort = 46241
+externalPort = 3003
 
 [[ports]]
 localPort = 46519
