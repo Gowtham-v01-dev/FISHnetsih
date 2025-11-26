@@ -192,11 +192,19 @@ export const CatchMap = ({ onCatchSelect, className }: CatchMapProps) => {
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
     });
 
+    const indiaBounds: L.LatLngBoundsExpression = [
+      [5.0, 68.0],
+      [23.5, 89.0]
+    ];
+
     const map = L.map(containerRef.current, {
-      center: [20.5937, 78.9629],
+      center: [15.0, 78.0],
       zoom: 5,
       zoomControl: false,
       attributionControl: false,
+      maxBounds: indiaBounds,
+      maxBoundsViscosity: 1.0,
+      minZoom: 4,
     });
 
     // use a light basemap for a light-themed UI

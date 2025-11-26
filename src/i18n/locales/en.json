@@ -262,7 +262,9 @@
     "no": "No",
     "ok": "OK",
     "create": "New Post",
-    "share": "Share"
+    "share": "Share",
+    "unknown": "Unknown",
+    "refresh": "Refresh"
   },
   "chat": {
     "typeMessage": "Type a message...",

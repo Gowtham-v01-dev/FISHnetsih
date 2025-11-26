@@ -146,7 +146,7 @@ export default function ProfilePage() {
 
               <Badge variant="secondary" className="flex items-center gap-1">
                 <Fish className="h-3 w-3" />
-                {t('profile.favoriteSpecies')}: {currentUser.favoriteSpecies}
+                {t('profile.favoriteSpecies')}: {currentUser.favoriteSpecies === 'Unknown' ? t('common.unknown') : t(`species.${currentUser.favoriteSpecies}`, { defaultValue: currentUser.favoriteSpecies })}
               </Badge>
             </div>
           </CardContent>

@@ -310,53 +310,53 @@ export const AnalysisResults = ({
 
       {/* Enhanced Action Buttons */}
       <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <div className="flex gap-2 sm:gap-3">
           <Button
             variant="outline"
             onClick={onRetake}
-            className="flex-1 h-11 sm:h-12 border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300 text-xs sm:text-sm whitespace-normal"
+            className="flex-1 h-11 sm:h-12 border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all duration-300 text-[10px] sm:text-sm px-2 sm:px-4 overflow-hidden"
           >
-            <Camera className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 shrink-0" />
-            <span className="break-words">{t('analyze.retakePhoto')}</span>
+            <Camera className="w-4 h-4 shrink-0" />
+            <span className="ml-1 truncate">{t('analyze.retakePhoto')}</span>
           </Button>
           
           <Button
             onClick={handleSave}
             disabled={isSaving}
-            className="flex-1 h-11 sm:h-12 bg-gradient-primary hover:opacity-90 shadow-glow text-white font-semibold transition-all duration-300 hover:scale-105 text-xs sm:text-sm whitespace-normal"
+            className="flex-1 h-11 sm:h-12 bg-gradient-primary hover:opacity-90 shadow-glow text-white font-semibold transition-all duration-300 hover:scale-105 text-[10px] sm:text-sm px-2 sm:px-4 overflow-hidden"
           >
             {isSaving ? (
-              <div className="flex items-center gap-1 sm:gap-2">
+              <div className="flex items-center gap-1">
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin shrink-0" />
-                <span className="break-words">{t('analyze.saving')}</span>
+                <span className="truncate">{t('analyze.saving')}</span>
               </div>
             ) : (
               <>
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 shrink-0" />
-                <span className="break-words">{t('analyze.saveToHistory')}</span>
+                <Check className="w-4 h-4 shrink-0" />
+                <span className="ml-1 truncate">{t('analyze.saveToHistory')}</span>
               </>
             )}
           </Button>
         </div>
 
         {/* Secondary Actions */}
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+        <div className="flex gap-2 sm:gap-3">
           <Button 
             variant="secondary" 
             onClick={shareResults}
-            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 text-blue-700 border-0 text-xs sm:text-sm whitespace-normal"
+            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-blue-100 to-cyan-100 hover:from-blue-200 hover:to-cyan-200 text-blue-700 border-0 text-[10px] sm:text-sm px-2 sm:px-4 overflow-hidden"
           >
-            <Share className="w-4 h-4 mr-1 sm:mr-2 shrink-0" />
-            <span className="break-words">{t('analyze.shareCatch')}</span>
+            <Share className="w-4 h-4 shrink-0" />
+            <span className="ml-1 truncate">{t('analyze.shareCatch')}</span>
           </Button>
           
           <Button 
             variant="secondary" 
             onClick={() => setShowPDFGenerator(true)}
-            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 border-0 text-xs sm:text-sm whitespace-normal"
+            className="flex-1 h-10 sm:h-11 bg-gradient-to-r from-purple-100 to-pink-100 hover:from-purple-200 hover:to-pink-200 text-purple-700 border-0 text-[10px] sm:text-sm px-2 sm:px-4 overflow-hidden"
           >
-            <Download className="w-4 h-4 mr-1 sm:mr-2 shrink-0" />
-            <span className="break-words">{t('analyze.exportPDF')}</span>
+            <Download className="w-4 h-4 shrink-0" />
+            <span className="ml-1 truncate">{t('analyze.exportPDF')}</span>
           </Button>
         </div>
       </div>
