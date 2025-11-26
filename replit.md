@@ -90,6 +90,27 @@ src/
 
 ## Recent Changes
 
+### News Feature & Map Improvements (2025-11-26)
+1. **News Fetching Service**: Created a news service using RSS→JSON API
+   - Fetches fishing-related news from Google News RSS feed
+   - Stores news in localStorage with deduplication by link/title
+   - Auto-refreshes every 30 minutes with proper cleanup on unmount
+   - Memory leak fixed: stopNewsFetcher() called on component unmount
+   - Language-aware: Refetches news when user changes language
+2. **World's View Tab Page Layout**: Redesigned from popup modal to full tab page
+   - Map, News, and Weather tabs with tab navigation
+   - Keyboard navigation support (ArrowLeft/Right, Home/End)
+   - ARIA accessibility attributes for screen readers
+3. **Indian Coastal Map Bounds**: Restricted map to Indian coastal region
+   - Bounds: 5°–23° N latitude, 68°–89° E longitude
+   - maxBoundsViscosity: 1.0 to prevent panning outside
+4. **Unknown Translation**: Added "unknown" translation to all 12 locale files
+   - ProfilePage uses t('common.unknown') for favoriteSpecies
+   - Also added "refresh" translation key
+5. **AnalysisResults Button Fix**: Compressed button layout
+   - Added truncate class and overflow-hidden
+   - Reduced padding and text size for better fit
+
 ### Footer Navigation Fix & Real AI Chatbot Integration (2025-11-25)
 1. **Footer Navigation Multilingual Fix**: Resolved text overflow issues for Tamil and other languages
    - Reduced padding from p-3 to p-2 for more compact layout
