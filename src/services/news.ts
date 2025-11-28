@@ -25,15 +25,18 @@ interface RSSResponse {
   items: RSSItem[];
 }
 
-const NEWS_STORAGE_KEY = 'fisherman_news';
+const NEWS_STORAGE_KEY_PREFIX = 'fisherman_news'; 
 const FETCH_INTERVAL = 30 * 60 * 1000;
 const MAX_ARTICLES = 15;
 
 let fetchIntervalId: ReturnType<typeof setInterval> | null = null;
 
-function getStoredNews(): NewsArticle[] {
+function getStorageKey(language: string): string { 
+   return `${NEWS_STORAGE_KEY_PREFIX}_${language}`;
+}
+function getStoredNews(language: string): NewsArticle[] { 
   try {
-    const stored = localStorage.getItem(NEWS_STORAGE_KEY);
+    const stored = localStorage.getItem(getStorageKey(language));
     if (stored) {
       return JSON.parse(stored);
     }
@@ -43,9 +46,9 @@ function getStoredNews(): NewsArticle[] {
   return [];
 }
 
-function storeNews(articles: NewsArticle[]): void {
+function storeNews(articles: NewsArticle[], language: string): void { 
   try {
-    localStorage.setItem(NEWS_STORAGE_KEY, JSON.stringify(articles));
+    localStorage.setItem(getStorageKey(language), JSON.stringify(articles)); 
   } catch (error) {
     console.error('Error storing news:', error);
   }
@@ -57,8 +60,8 @@ function isDuplicate(article: NewsArticle, existingArticles: NewsArticle[]): boo
   );
 }
 
-async function fetchNewsFromAPI(): Promise<NewsArticle[]> {
-  const rssUrl = 'https://news.google.com/rss/search?q=fishermen+OR+fishing+OR+fisheries+OR+coastal+OR+marine&hl=en-IN&gl=IN&ceid=IN:en';
+async function fetchNewsFromAPI(language: string): Promise<NewsArticle[]> {
+  const rssUrl = `https://news.google.com/rss/search?q=fishermen&hl=${language}&gl=IN&ceid=IN:${language}`;
   const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
   try {
@@ -92,9 +95,9 @@ function extractSourceFromTitle(title: string): string {
   return match ? match[1].trim() : '';
 }
 
-export async function refreshNews(): Promise<NewsArticle[]> {
-  const existingArticles = getStoredNews();
-  const newArticles = await fetchNewsFromAPI();
+export async function refreshNews(language: string): Promise<NewsArticle[]> {
+  const existingArticles = getStoredNews(language); 
+  const newArticles = await fetchNewsFromAPI(language);
 
   const uniqueNewArticles = newArticles.filter(
     (article) => !isDuplicate(article, existingArticles)
@@ -104,23 +107,23 @@ export async function refreshNews(): Promise<NewsArticle[]> {
     .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
     .slice(0, MAX_ARTICLES);
 
-  storeNews(combinedArticles);
+  storeNews(combinedArticles, language);
   return combinedArticles;
 }
 
-export function getLatestNews(): NewsArticle[] {
-  return getStoredNews();
+export function getLatestNews(language: string): NewsArticle[] {
+  return getStoredNews(language); 
 }
 
-export function startNewsFetcher(): void {
+export function startNewsFetcher(language: string): void {
   if (fetchIntervalId) {
     clearInterval(fetchIntervalId);
   }
 
-  refreshNews().catch(console.error);
+  refreshNews(language).catch(console.error);
 
   fetchIntervalId = setInterval(() => {
-    refreshNews().catch(console.error);
+    refreshNews(language).catch(console.error);
   }, FETCH_INTERVAL);
 }
 

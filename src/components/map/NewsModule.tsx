@@ -5,7 +5,8 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { getLatestNews, refreshNews, startNewsFetcher, stopNewsFetcher, type NewsArticle } from '@/services/news';
+import { getLatestNews, refreshNews, type NewsArticle } from '@/services/news';
+import { ArticleDetailModal } from './ArticleDetailModal';
 
 export const NewsModule = () => {
   const { t, i18n } = useTranslation();
@@ -13,13 +14,17 @@ export const NewsModule = () => {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
 
   useEffect(() => {
-    startNewsFetcher();
     loadNews();
 
+    const intervalId = setInterval(() => {
+      handleRefresh();
+    }, 30 * 60 * 1000); // 30 minutes
+
     return () => {
-      stopNewsFetcher();
+      clearInterval(intervalId);
     };
   }, [i18n.language]);
 
@@ -27,11 +32,11 @@ export const NewsModule = () => {
     setLoading(true);
     setError(null);
     try {
-      const storedNews = getLatestNews();
+      const storedNews = getLatestNews(i18n.language);
       if (storedNews.length > 0) {
         setArticles(storedNews);
       } else {
-        const freshNews = await refreshNews();
+        const freshNews = await refreshNews(i18n.language);
         setArticles(freshNews);
       }
     } catch (err) {
@@ -45,7 +50,7 @@ export const NewsModule = () => {
   const handleRefresh = async () => {
     setRefreshing(true);
     try {
-      const freshNews = await refreshNews();
+      const freshNews = await refreshNews(i18n.language);
       setArticles(freshNews);
     } catch (err) {
       console.error('Error refreshing news:', err);
@@ -144,11 +149,9 @@ export const NewsModule = () => {
               transition={{ delay: index * 0.05 }}
             >
               <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-l-4 border-l-primary/50">
-                <a
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
+                <div
+                  onClick={() => setSelectedArticle(article)}
+                  className="block cursor-pointer"
                 >
                   <div className="flex flex-col sm:flex-row">
                     {article.image && (
@@ -191,12 +194,13 @@ export const NewsModule = () => {
                       </div>
                     </div>
                   </div>
-                </a>
+                </div>
               </Card>
             </motion.div>
           ))}
         </div>
       </ScrollArea>
+      <ArticleDetailModal article={selectedArticle} onOpenChange={() => setSelectedArticle(null)} />
     </div>
   );
 };

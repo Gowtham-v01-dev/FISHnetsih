@@ -109,7 +109,7 @@ export default function ProfilePage() {
         </div>
       </header>
 
-      <div className="container mx-auto max-w-md p-4 space-y-6">
+      <div className="container mx-auto max-w-md p-4 space-y-6"> 
         {/* Profile Header */}
         <Card>
           <CardContent className="pt-6">

@@ -103,7 +103,7 @@ export default function FeedPage() {
     const post = posts.find(p => p.id === postId);
     if (!post) return;
     if (navigator.share) {
-      navigator.share({ 
+      navigator.share({
         title: t('feed.shareTitle', { species: post.species, defaultValue: `Check out this ${post.species} catch on Fish Net!` }), 
         text: post.caption, 
         url: window.location.href 
@@ -130,7 +130,7 @@ export default function FeedPage() {
   const isPostLiked = (postId: string) => currentUser ? socialService.isPostLiked(postId, currentUser.id) : false;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="bg-slate-900 text-white">
       <div className="absolute inset-0 bg-grid-sky-400/[0.05]" />
       
       <header className="sticky top-0 z-40 bg-slate-900/60 backdrop-blur-xl border-b border-sky-400/20">
@@ -140,9 +140,6 @@ export default function FeedPage() {
               <h1 className="text-2xl font-bold text-sky-400 tracking-wider">{t('app.name')}</h1>
             <p>{t('feed.title')}</p>
             </div>
-            <Badge className={cn("hidden sm:inline-flex items-center text-xs", syncStatus.isOnline ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" : "bg-amber-500/20 text-amber-300 border-amber-500/30")}>
-              {syncStatus.isOnline ? <><Wifi className="h-3 w-3 mr-1.5" /> {t('chat.online')}</> : <><WifiOff className="h-3 w-3 mr-1.5" /> {t('chat.offline')}</>}
-            </Badge>
           </div>
           <div className="flex items-center gap-2">
             <div className="hidden sm:block">
@@ -165,7 +162,7 @@ export default function FeedPage() {
         </div>
       </header>
 
-      <main className="container mx-auto max-w-md p-4 pb-32">
+      <main className="container mx-auto max-w-md p-4"> 
         {syncStatus.isSyncing && (
           <div className="bg-sky-500/20 p-3 rounded-lg text-center text-sm text-sky-300 flex items-center justify-center gap-2 mb-4">
             <RefreshCw className="h-4 w-4 animate-spin" />
@@ -223,4 +220,3 @@ export default function FeedPage() {
     </div>
   );
 }
-

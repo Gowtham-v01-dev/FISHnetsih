@@ -118,6 +118,12 @@ const databaseService = {
   },
 };
 
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+
 const HistoryList = ({
   onCatchSelect,
   items,
@@ -134,40 +140,93 @@ const HistoryList = ({
     variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
   >
     {items.map((c) => (
-      <motion.div
-        key={c.id}
-        onClick={() => onCatchSelect(c)}
-        className="bg-slate-800/50 rounded-xl border border-sky-400/20 overflow-hidden cursor-pointer group hover:border-sky-400/50 transition-all"
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        whileHover={{ scale: 1.03 }}
-      >
-        <img
-          src={c.image_data}
-          alt={c.species}
-          className="w-full h-48 object-cover"
-        />
-        <div className="p-4">
-          <p className="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
-            {translateSpecies(c.species, t)}
-          </p>
-          <p className="text-sm text-gray-400">
-            {new Date(c.timestamp).toLocaleDateString()}
-          </p>
-          <div className="flex items-center gap-4 mt-3 text-xs text-gray-300">
-            <span className="flex items-center gap-1.5">
-              <Zap size={14} className="text-sky-400" />{" "}
-              {c.confidence.toFixed(0)}% {t('analyze.confidence')}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Droplet size={14} className="text-emerald-400" />{" "}
-              {c.health_score.toFixed(0)}% {t('history.healthScore', { defaultValue: 'Health' })}
-            </span>
+      <HoverCard key={c.id}>
+        <HoverCardTrigger asChild>
+          <motion.div
+            onClick={() => onCatchSelect(c)}
+            className="bg-slate-800/50 rounded-xl border border-sky-400/20 overflow-hidden cursor-pointer group hover:border-sky-400/50 transition-all"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            whileHover={{ scale: 1.03 }}
+          >
+            <img
+              src={c.image_data}
+              alt={c.species}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <p className="font-bold text-lg text-white group-hover:text-sky-400 transition-colors">
+                {translateSpecies(c.species, t)}
+              </p>
+              <p className="text-sm text-gray-400">
+                {new Date(c.timestamp).toLocaleDateString()}
+              </p>
+              <div className="flex items-center gap-4 mt-3 text-xs text-gray-300">
+                <span className="flex items-center gap-1.5">
+                  <Zap size={14} className="text-sky-400" />{" "}
+                  {c.confidence.toFixed(0)}% {t("analyze.confidence")}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Droplet size={14} className="text-emerald-400" />{" "}
+                  {c.health_score.toFixed(0)}%{" "}
+                  {t("history.healthScore", { defaultValue: "Health" })}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </HoverCardTrigger>
+        <HoverCardContent
+          side="top"
+          className="w-80 bg-slate-900/80 backdrop-blur-xl border-sky-400/30 text-white"
+        >
+          <div className="flex justify-between space-x-4">
+            <div className="space-y-1">
+              <h4 className="text-sm font-semibold text-sky-400">
+                {translateSpecies(c.species, t)}
+              </h4>
+              <p className="text-sm">
+                {t("history.hover.description", {
+                  defaultValue:
+                    "This is a summary of the catch. Click for more details.",
+                })}
+              </p>
+              <div className="flex items-center pt-2">
+                <span className="text-xs text-gray-400">
+                  {new Date(c.timestamp).toLocaleString()}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-2 text-sm">
+                <div>
+                  <span className="font-semibold text-sky-400">
+                    {t("analyze.confidence")}:
+                  </span>{" "}
+                  {c.confidence.toFixed(1)}%
+                </div>
+                <div>
+                  <span className="font-semibold text-emerald-400">
+                    {t("history.healthScore", { defaultValue: "Health" })}:
+                  </span>{" "}
+                  {c.health_score.toFixed(1)}%
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-400">
+                    {t("history.weight", { defaultValue: "Weight" })}:
+                  </span>{" "}
+                  {c.estimated_weight.toFixed(2)} kg
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-400">
+                    {t("map.location", { defaultValue: "Location" })}:
+                  </span>{" "}
+                  {c.latitude.toFixed(2)}, {c.longitude.toFixed(2)}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </HoverCardContent>
+      </HoverCard>
     ))}
   </motion.div>
 );
@@ -295,7 +354,7 @@ export default function HistoryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="bg-slate-900 text-white">
       <div className="absolute inset-0 bg-grid-sky-400/[0.05]" />
       <style>{`
         :root {
@@ -337,7 +396,7 @@ export default function HistoryPage() {
         </div>
       </header>
 
-      <div className="container mx-auto max-w-7xl p-4">
+      <div className="container mx-auto max-w-7xl p-4"> 
         <HistoryList onCatchSelect={setSelected} items={catches} t={t} />
       </div>
 
